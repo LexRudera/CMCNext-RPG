@@ -12,6 +12,6 @@ The game is programmed in C++ from scratch, on a custom made engine, on top of t
 
 ##Crew
 Truffle Mint - Game Idea/Concept, Art  
-Fantasy Glow - Art, Spriting  
+[Fantasy Glow](https://github.com/FantasyGlow) - Art, Spriting  
 [Morty](https://github.com/Chrysalis-Army) - Enemy design  
 [Lex Rudera](https://github.com/LexRudera) - Programming  
