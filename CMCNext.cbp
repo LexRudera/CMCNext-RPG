@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="CMCNext" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/CMCNext" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/CMCNext" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-std=c++11" />
+			<Add option="-Wall" />
+			<Add directory="./include" />
+			<Add directory="$(#SFML)/include" />
+		</Compiler>
+		<Linker>
+			<Add option="-static-libgcc" />
+			<Add option="-static-libstdc++" />
+			<Add directory="./lib" />
+		</Linker>
+		<Unit filename="include/Animation.hpp" />
+		<Unit filename="include/Background.hpp" />
+		<Unit filename="include/Game.hpp" />
+		<Unit filename="include/GameMenu.hpp" />
+		<Unit filename="include/Global.hpp" />
+		<Unit filename="include/InputManager.hpp" />
+		<Unit filename="include/Level.hpp" />
+		<Unit filename="include/MainMenu.hpp" />
+		<Unit filename="include/Menu.hpp" />
+		<Unit filename="include/MenuControls.hpp" />
+		<Unit filename="include/MenuControls/Button.hpp" />
+		<Unit filename="include/MenuControls/ControlBase.hpp" />
+		<Unit filename="include/MenuControls/ControlsShared.hpp" />
+		<Unit filename="include/MenuControls/Image.hpp" />
+		<Unit filename="include/MenuControls/Label.hpp" />
+		<Unit filename="include/MenuControls/Selector.hpp" />
+		<Unit filename="include/MenuControls/StaticBox.hpp" />
+		<Unit filename="include/Object.hpp" />
+		<Unit filename="include/OptionsMenu.hpp" />
+		<Unit filename="include/ResourceManager.hpp" />
+		<Unit filename="include/Scene.hpp" />
+		<Unit filename="include/SelectedGameMenu.hpp" />
+		<Unit filename="include/Settings.hpp" />
+		<Unit filename="include/Utils/GameInfoReader.hpp" />
+		<Unit filename="src/Animation.cpp" />
+		<Unit filename="src/Background.cpp" />
+		<Unit filename="src/Game.cpp" />
+		<Unit filename="src/GameMenu.cpp" />
+		<Unit filename="src/Global.cpp" />
+		<Unit filename="src/InputManager.cpp" />
+		<Unit filename="src/Level.cpp" />
+		<Unit filename="src/MainMenu.cpp" />
+		<Unit filename="src/Menu.cpp" />
+		<Unit filename="src/MenuControls/Button.cpp" />
+		<Unit filename="src/MenuControls/ControlBase.cpp" />
+		<Unit filename="src/MenuControls/Image.cpp" />
+		<Unit filename="src/MenuControls/Label.cpp" />
+		<Unit filename="src/MenuControls/Selector.cpp" />
+		<Unit filename="src/MenuControls/StaticBox.cpp" />
+		<Unit filename="src/Object.cpp" />
+		<Unit filename="src/OptionsMenu.cpp" />
+		<Unit filename="src/ResourceManager.cpp" />
+		<Unit filename="src/Scene.cpp" />
+		<Unit filename="src/SelectedGameMenu.cpp" />
+		<Unit filename="src/Settings.cpp" />
+		<Unit filename="src/Utils/GameInfoReader.cpp" />
+		<Unit filename="src/main.cpp" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
