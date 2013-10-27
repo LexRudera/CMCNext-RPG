@@ -20,7 +20,7 @@ public:
 	Scene* GetActiveScene() const {
 		return m_activeScene;
 	}
-	void ChangeScene(me::Scene* scn, const Persistence& depth = Level);
+	void ChangeScene(Scene* scn, const Persistence& depth = Level);
 
 	sf::Time* GetFrameTime() {
 		return &Game::sm_frameTime;

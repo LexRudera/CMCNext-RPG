@@ -4,7 +4,6 @@
 #include <Menu.hpp>
 #include "MenuControls.hpp"
 
-namespace me {
 class OptionsMenu : public Menu {
 public:
 	/** Default constructor */
@@ -21,6 +20,5 @@ private:
 	void BackBtn_OnClick();
 	void FpsBtn_OnClick();
 };
-}
 
 #endif // OPTIONSMENU_H

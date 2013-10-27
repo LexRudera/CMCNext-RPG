@@ -4,22 +4,23 @@
 	<Project>
 		<Option title="CMCNext" />
 		<Option pch_mode="2" />
-		<Option compiler="gcc" />
+		<Option compiler="tdm_gcc_64_compiler" />
 		<Build>
 			<Target title="Debug">
-				<Option output="bin/Debug/CMCNext" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/CMCNext-d" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="./bin/" />
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
-				<Option compiler="gcc" />
+				<Option compiler="tdm_gcc_64_compiler" />
 				<Compiler>
 					<Add option="-g" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
-				<Option output="bin/Release/CMCNext" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/CMCNext" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Release/" />
-				<Option type="1" />
-				<Option compiler="gcc" />
+				<Option type="0" />
+				<Option compiler="tdm_gcc_64_compiler" />
 				<Compiler>
 					<Add option="-O2" />
 				</Compiler>
@@ -35,14 +36,16 @@
 			<Add directory="$(#SFML)/include" />
 		</Compiler>
 		<Linker>
-			<Add option="-static-libgcc" />
-			<Add option="-static-libstdc++" />
+			<Add library="sfml-audio-2" />
+			<Add library="sfml-graphics-2" />
+			<Add library="sfml-window-2" />
+			<Add library="sfml-system-2" />
 			<Add directory="./lib" />
+			<Add directory="$(#SFML)/lib" />
 		</Linker>
 		<Unit filename="include/Animation.hpp" />
 		<Unit filename="include/Background.hpp" />
 		<Unit filename="include/Game.hpp" />
-		<Unit filename="include/GameMenu.hpp" />
 		<Unit filename="include/Global.hpp" />
 		<Unit filename="include/InputManager.hpp" />
 		<Unit filename="include/Level.hpp" />
@@ -60,13 +63,10 @@
 		<Unit filename="include/OptionsMenu.hpp" />
 		<Unit filename="include/ResourceManager.hpp" />
 		<Unit filename="include/Scene.hpp" />
-		<Unit filename="include/SelectedGameMenu.hpp" />
 		<Unit filename="include/Settings.hpp" />
-		<Unit filename="include/Utils/GameInfoReader.hpp" />
 		<Unit filename="src/Animation.cpp" />
 		<Unit filename="src/Background.cpp" />
 		<Unit filename="src/Game.cpp" />
-		<Unit filename="src/GameMenu.cpp" />
 		<Unit filename="src/Global.cpp" />
 		<Unit filename="src/InputManager.cpp" />
 		<Unit filename="src/Level.cpp" />
@@ -82,9 +82,7 @@
 		<Unit filename="src/OptionsMenu.cpp" />
 		<Unit filename="src/ResourceManager.cpp" />
 		<Unit filename="src/Scene.cpp" />
-		<Unit filename="src/SelectedGameMenu.cpp" />
 		<Unit filename="src/Settings.cpp" />
-		<Unit filename="src/Utils/GameInfoReader.cpp" />
 		<Unit filename="src/main.cpp" />
 		<Extensions>
 			<code_completion />
