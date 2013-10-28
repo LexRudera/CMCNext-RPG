@@ -5,24 +5,22 @@
 // zlib licence
 //---------------------------------------------
 
-#include "Game.hpp"
+#include "Core.hpp"
 #include "Settings.hpp"
 #include "MainMenu.hpp"
-#include "Global.hpp"
+#include "Utilities.hpp"
 #include <iostream>
 
 int main() {
 	Log("");
 	Log("Running");
 	Log("Setting up game instance");
-	Game Derp(new Settings());
-	std::string EndMessage("OK");
+	Core Derp(new Settings());
 	Log("Firing up the game.");
 
-	Derp.Run(EndMessage, new MainMenu());
-	if (EndMessage != "OK") {
-		Error(EndMessage);
-		return 1;
-	} else
-		return 0;
+	int ErrorCode = Derp.Run(new MainMenu());
+	if (ErrorCode != 0) {
+		Error(IntToString(ErrorCode));
+	}
+		return ErrorCode;
 }

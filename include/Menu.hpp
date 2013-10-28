@@ -15,9 +15,9 @@ public:
 	Menu();
 	/** Default destructor */
 	virtual ~Menu();
-	void Add(ControlBase* obj);
 	bool ButtonReady();
 protected:
+	void Add(ControlBase* obj);
 	void Tick();
 private:
 	bool m_ButtonedFrame = false;

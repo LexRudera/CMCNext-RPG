@@ -20,4 +20,6 @@ inline std::string to_string(const T& t) {
 	return ss.str();
 }
 
+std::string IntToString(int i);
+
 #endif // GLOBAL_HPP_INCLUDED

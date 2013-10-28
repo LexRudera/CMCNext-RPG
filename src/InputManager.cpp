@@ -1,5 +1,5 @@
 #include "InputManager.hpp"
-#include "Global.hpp"
+#include "Utilities.hpp"
 
 InputManager::InputManager() {
 	// Clear the arrays, just to be safe.

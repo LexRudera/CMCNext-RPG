@@ -1,7 +1,7 @@
 #ifndef INPUT_H
 #define INPUT_H
 
-#include "Game.hpp"
+#include "Core.hpp"
 
 //class Game;
 class InputManager {
@@ -52,7 +52,7 @@ public:
 		return ButtonsUp[key];
 	}
 	sf::Vector2i GetMousePos() {
-		return sf::Mouse::getPosition(*Game::Get()->GetWindow());
+		return sf::Mouse::getPosition(*Core::Get()->GetWindow());
 	}
 	sf::Vector2i GetAbsoluteMousePos() {
 		return sf::Mouse::getPosition();

@@ -1,6 +1,6 @@
 #include "MenuControls/Button.hpp"
-#include "Global.hpp"
-#include "Game.hpp"
+#include "Utilities.hpp"
+#include "Core.hpp"
 #include "InputManager.hpp"
 
 Button::Button(Menu* parent,
@@ -32,13 +32,13 @@ void Button::draw(sf::RenderTarget& target, sf::RenderStates states) const {
 
 void Button::tick() {
 	// Sense the mouse and react accordingly.
-	const sf::Vector2i& MPos = Game::Get()->GetInputManager()->GetMousePos();
+	const sf::Vector2i& MPos = Core::Get()->GetInputManager()->GetMousePos();
 	if (MPos.x > getPosition().x // Below the x pos
 	        && MPos.x < getPosition().x + m_Btn.getSize().x // Above the lower box bounds
 	        && MPos.y > getPosition().y // Past the y pos
 	        && MPos.y < getPosition().y + m_Btn.getSize().y) { // Before the right box bounds
 		//On Click
-		if (Game::Get()->GetInputManager()->IsButtonUp(sf::Mouse::Button::Left)) {
+		if (Core::Get()->GetInputManager()->IsButtonUp(sf::Mouse::Button::Left)) {
 			if (m_Parent->ButtonReady()) { // If a button already have been pressed this frame, don't even try anything
 				if (OnClick != 0) { // If there is an assigned function or not.
 					(m_Parent->*OnClick)();

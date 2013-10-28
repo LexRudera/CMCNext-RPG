@@ -1,4 +1,4 @@
-#include "Global.hpp"
+#include "Utilities.hpp"
 #include "ResourceManager.hpp"
 
 ResourceManager::ResourceManager() {

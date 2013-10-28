@@ -1,6 +1,6 @@
 #include "Background.hpp"
-#include "Global.hpp"
-#include "Game.hpp"
+#include "Utilities.hpp"
+#include "Core.hpp"
 
 Background::Background() {
 	//ctor

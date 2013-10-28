@@ -1,6 +1,6 @@
-#include "Global.hpp"
+#include "Utilities.hpp"
 #include "MenuControls/Label.hpp"
-#include "Game.hpp"
+#include "Core.hpp"
 
 Label::Label(const sf::String& text, unsigned int size, const sf::Vector2f& pos, float rot) {
 	LoadFont();
@@ -25,7 +25,7 @@ void Label::draw(sf::RenderTarget& target, sf::RenderStates states) const {
 }
 
 bool Label::LoadFont(const sf::String& font) {
-	const sf::Font* t = Game::Get()->GetResourceManager()->GetFont(font);
+	const sf::Font* t = Core::Get()->GetResourceManager()->GetFont(font);
 	if (t == 0) {
 		//delete t;
 		return false;

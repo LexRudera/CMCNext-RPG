@@ -1,7 +1,7 @@
 #include "MenuControls\Selector.hpp"
-#include "Game.hpp"
+#include "Core.hpp"
 #include "InputManager.hpp"
-#include "Global.hpp"
+#include "Utilities.hpp"
 
 Selector::Selector(unsigned int charSize, const sf::Vector2f& size, const sf::Vector2f& pos, float rot)
 	: m_Box(size),
@@ -53,7 +53,7 @@ void Selector::draw(sf::RenderTarget& target, sf::RenderStates states) const {
 
 void Selector::tick() {
 	// Sense the mouse and save it's position
-	const sf::Vector2i& MPos = Game::Get()->GetInputManager()->GetMousePos();
+	const sf::Vector2i& MPos = Core::Get()->GetInputManager()->GetMousePos();
 
 	/*if (MPos.x > getPosition().x // Below the x pos
 	    && MPos.x < getPosition().x + m_Box.GetSize().x // Above the lower box bounds
@@ -61,7 +61,7 @@ void Selector::tick() {
 	    && MPos.y < getPosition().y + m_Box.GetSize().y) // Before the right box bounds
 	{
 	    // On Click
-	    if (Game::Get()->GetInputManager()->IsButtonUp(sf::Mouse::Button::Left))
+	    if (Core::Get()->GetInputManager()->IsButtonUp(sf::Mouse::Button::Left))
 	    {
 	        // Shit got clicked!
 	        OnClick();
@@ -72,7 +72,7 @@ void Selector::tick() {
 	        && MPos.y > getPosition().y // Past the y pos
 	        && MPos.y < getPosition().y + m_ArrowLeft.getPosition().y + m_ArrowLeft.getLocalBounds().height) { // Before the right box bounds
 		// On Click
-		if (Game::Get()->GetInputManager()->IsButtonDown(sf::Mouse::Button::Left)) {
+		if (Core::Get()->GetInputManager()->IsButtonDown(sf::Mouse::Button::Left)) {
 			if(m_Entries.size() != 0) {
 				if (m_CurrentEntry == 0)
 					m_CurrentEntry = m_Entries.size()-1;
@@ -87,7 +87,7 @@ void Selector::tick() {
 	        && MPos.y > getPosition().y + m_ArrowRight.getPosition().y // Past the y pos
 	        && MPos.y < getPosition().y + m_ArrowRight.getPosition().y + m_ArrowRight.getLocalBounds().height) { // Before the right box bounds
 		// On Click
-		if (Game::Get()->GetInputManager()->IsButtonDown(sf::Mouse::Button::Left)) {
+		if (Core::Get()->GetInputManager()->IsButtonDown(sf::Mouse::Button::Left)) {
 			if(m_Entries.size() != 0) {
 				if (m_CurrentEntry == m_Entries.size()-1)
 					m_CurrentEntry = 0;

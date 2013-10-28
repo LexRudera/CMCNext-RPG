@@ -1,6 +1,6 @@
 #include "Menu.hpp"
-#include "Game.hpp"
-#include "Global.hpp"
+#include "Core.hpp"
+#include "Utilities.hpp"
 
 Menu::Menu() {
 	//ctor
@@ -18,6 +18,9 @@ void Menu::Tick() {
 	m_ButtonedFrame = false;
 }
 
+// A bit of explaination may be required. Let's imagine a scenario with two buttons,
+// on top of each other. The logic loop will go through each of them, and pass through this test.
+// Only the first button gets to be executed, locking the rest out. It resets each frame.
 bool Menu::ButtonReady() {
 	if (m_ButtonedFrame == false) {
 		m_ButtonedFrame = true;

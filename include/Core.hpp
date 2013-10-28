@@ -9,11 +9,11 @@
 //#include "InputManager.hpp"
 
 class InputManager;
-class Game {
+class Core {
 public:
-	Game(Settings* conf);
-	virtual ~Game();
-	void Run(std::string& EndMessage, Scene* scn);
+	Core(Settings* conf);
+	virtual ~Core();
+	int Run(Scene* scn);
 	sf::RenderWindow* GetWindow() const {
 		return m_window;
 	}
@@ -22,28 +22,18 @@ public:
 	}
 	void ChangeScene(Scene* scn, const Persistence& depth = Level);
 
-	sf::Time* GetFrameTime() {
-		return &Game::sm_frameTime;
-	}
-	Settings* GetConfiguration() {
-		return m_config;
-	}
-	ResourceManager* GetResourceManager() {
-		return m_ResManager;
-	}
-	InputManager* GetInputManager() {
-		return m_InputMan;
-	}
+	sf::Time* GetFrameTime() {return &Core::sm_frameTime;}
+	Settings* GetConfiguration() {return m_config;}
+	ResourceManager* GetResourceManager() {return m_ResManager;}
+	InputManager* GetInputManager() {return m_InputMan;}
 
-	static Game* Get() {
-		return sm_Instance;
-	}
+	static Core* Get() {return sm_Instance;}
 	static void Quit() {
-		Game::sm_Instance->GetWindow()->close();
+		Core::sm_Instance->GetWindow()->close();
 	}
 protected:
 private:
-	Game();
+	Core();
 
 	sf::Clock m_clk;
 	Settings* m_config = 0;
@@ -55,7 +45,7 @@ private:
 	InputManager* m_InputMan;
 
 	static sf::Time sm_frameTime;
-	static Game* sm_Instance;
+	static Core* sm_Instance;
 };
 
 #endif // GAME_H

@@ -1,23 +1,23 @@
-#include "Game.hpp"
+#include "Core.hpp"
 #include "InputManager.hpp"
 #include <iostream>
-#include "Global.hpp"
+#include "Utilities.hpp"
 
-sf::Time Game::sm_frameTime;
-Game* Game::sm_Instance;
+sf::Time Core::sm_frameTime;
+Core* Core::sm_Instance;
 
-Game::Game() {
-	Game::sm_Instance = this;
+Core::Core() {
+	Core::sm_Instance = this;
 	m_ResManager = new ResourceManager();
 	m_InputMan = new InputManager();
 	GetResourceManager()->LoadFont("Gentium", "Gentium-R.ttf",Global);
 }
 
-Game::Game(Settings* conf) : Game() {
+Core::Core(Settings* conf) : Core() {
 	m_config = conf;
 }
 
-Game::~Game() {
+Core::~Core() {
 	delete m_activeScene;
 	delete m_InputMan;
 	delete m_config;
@@ -25,9 +25,9 @@ Game::~Game() {
 	delete m_window;
 }
 
-void Game::Run(std::string& EndMessage, Scene* scn) {
+int Core::Run(Scene* scn) {
 	//Log("Initializing");
-	Game::sm_frameTime = m_clk.restart();
+	Core::sm_frameTime = m_clk.restart();
 	//m_window = new sf::RenderWindow(sf::VideoMode(800,600),"Some Game",sf::Style::Fullscreen/*sf::Style::Titlebar*/);
 	m_window = new sf::RenderWindow(sf::VideoMode(800,600),"Some Game", sf::Style::Titlebar);
 
@@ -83,7 +83,7 @@ void Game::Run(std::string& EndMessage, Scene* scn) {
 		GetActiveScene()->Render(*m_window);
 		//Log("Rendering FPS");
 		if (GetConfiguration()->ShowFps() && m_window->isOpen()) { // Why it matters if the window is open or not, I don't know.
-			FpsTxt.setString(to_string(1/Game::sm_frameTime.asSeconds()));
+			FpsTxt.setString(to_string(1/Core::sm_frameTime.asSeconds()));
 			m_window->draw(FpsTxt);
 		}
 		m_window->display();
@@ -92,12 +92,12 @@ void Game::Run(std::string& EndMessage, Scene* scn) {
 		// After frame stuff
 		//-------------------
 		//Log("After");
-		Game::sm_frameTime = m_clk.restart();
+		Core::sm_frameTime = m_clk.restart();
 		//Log("Aftered");
 	}
-	return;
+	return 0;
 }
-void Game::ChangeScene(Scene* scn, const Persistence& depth) {
+void Core::ChangeScene(Scene* scn, const Persistence& depth) {
 	/*if (m_activeScene != 0)
 	{
 	    delete m_activeScene;

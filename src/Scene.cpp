@@ -1,5 +1,5 @@
 #include "Scene.hpp"
-#include "Global.hpp"
+#include "Utilities.hpp"
 
 Scene::Scene() {
 	//ctor
