@@ -37,7 +37,6 @@
 			<Add option="-Wredundant-decls" />
 			<Add option="-Wcast-align" />
 			<Add option="-Wundef" />
-			<Add option="-Winline" />
 			<Add option="-Wunreachable-code" />
 			<Add option="-Wmissing-declarations" />
 			<Add option="-Wmissing-include-dirs" />
@@ -54,9 +53,12 @@
 			<Add directory="./lib" />
 			<Add directory="$(#SFML)/lib" />
 		</Linker>
-		<Unit filename="include/Animation.hpp" />
+		<Unit filename="include/Area.hpp" />
 		<Unit filename="include/Background.hpp" />
+		<Unit filename="include/Battle.hpp" />
 		<Unit filename="include/Core.hpp" />
+		<Unit filename="include/Explorative.hpp" />
+		<Unit filename="include/Game.hpp" />
 		<Unit filename="include/InputManager.hpp" />
 		<Unit filename="include/Level.hpp" />
 		<Unit filename="include/MainMenu.hpp" />
@@ -75,9 +77,12 @@
 		<Unit filename="include/Scene.hpp" />
 		<Unit filename="include/Settings.hpp" />
 		<Unit filename="include/Utilities.hpp" />
-		<Unit filename="src/Animation.cpp" />
+		<Unit filename="src/Area.cpp" />
 		<Unit filename="src/Background.cpp" />
+		<Unit filename="src/Battle.cpp" />
 		<Unit filename="src/Core.cpp" />
+		<Unit filename="src/Explorative.cpp" />
+		<Unit filename="src/Game.cpp" />
 		<Unit filename="src/InputManager.cpp" />
 		<Unit filename="src/Level.cpp" />
 		<Unit filename="src/MainMenu.cpp" />

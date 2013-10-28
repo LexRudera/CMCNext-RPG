@@ -47,5 +47,5 @@ private:
 	static sf::Time sm_frameTime;
 	static Core* sm_Instance;
 };
-}
+};
 #endif // GAME_H
