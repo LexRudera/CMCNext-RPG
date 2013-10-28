@@ -5,6 +5,7 @@
 		<Option title="CMCNext" />
 		<Option pch_mode="2" />
 		<Option compiler="tdm_gcc_64_compiler" />
+		<Option extended_obj_names="1" />
 		<Build>
 			<Target title="Debug">
 				<Option output="bin/CMCNext-d" prefix_auto="1" extension_auto="1" />
@@ -18,6 +19,7 @@
 			</Target>
 			<Target title="Release">
 				<Option output="bin/CMCNext" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="./bin/" />
 				<Option object_output="obj/Release/" />
 				<Option type="0" />
 				<Option compiler="tdm_gcc_64_compiler" />
@@ -30,8 +32,17 @@
 			</Target>
 		</Build>
 		<Compiler>
+			<Add option="-Wshadow" />
+			<Add option="-Winit-self" />
+			<Add option="-Wredundant-decls" />
+			<Add option="-Wcast-align" />
+			<Add option="-Wundef" />
+			<Add option="-Winline" />
+			<Add option="-Wunreachable-code" />
+			<Add option="-Wmissing-declarations" />
+			<Add option="-Wmissing-include-dirs" />
+			<Add option="-Wmain" />
 			<Add option="-std=c++11" />
-			<Add option="-Wall" />
 			<Add directory="./include" />
 			<Add directory="$(#SFML)/include" />
 		</Compiler>
@@ -45,8 +56,7 @@
 		</Linker>
 		<Unit filename="include/Animation.hpp" />
 		<Unit filename="include/Background.hpp" />
-		<Unit filename="include/Game.hpp" />
-		<Unit filename="include/Global.hpp" />
+		<Unit filename="include/Core.hpp" />
 		<Unit filename="include/InputManager.hpp" />
 		<Unit filename="include/Level.hpp" />
 		<Unit filename="include/MainMenu.hpp" />
@@ -64,10 +74,10 @@
 		<Unit filename="include/ResourceManager.hpp" />
 		<Unit filename="include/Scene.hpp" />
 		<Unit filename="include/Settings.hpp" />
+		<Unit filename="include/Utilities.hpp" />
 		<Unit filename="src/Animation.cpp" />
 		<Unit filename="src/Background.cpp" />
-		<Unit filename="src/Game.cpp" />
-		<Unit filename="src/Global.cpp" />
+		<Unit filename="src/Core.cpp" />
 		<Unit filename="src/InputManager.cpp" />
 		<Unit filename="src/Level.cpp" />
 		<Unit filename="src/MainMenu.cpp" />
@@ -83,6 +93,7 @@
 		<Unit filename="src/ResourceManager.cpp" />
 		<Unit filename="src/Scene.cpp" />
 		<Unit filename="src/Settings.cpp" />
+		<Unit filename="src/Utilities.cpp" />
 		<Unit filename="src/main.cpp" />
 		<Extensions>
 			<code_completion />
