@@ -1,6 +1,7 @@
 #include "Utilities.hpp"
 #include "ResourceManager.hpp"
 
+namespace lpe{
 ResourceManager::ResourceManager() {
 	FontDirectory = "fonts\\";
 	TextureDirectory = "textures\\";
@@ -234,4 +235,5 @@ const sf::SoundBuffer* ResourceManager::GetSound(const sf::String& strng) {
 		}
 	}
 	return 0;
+}
 }

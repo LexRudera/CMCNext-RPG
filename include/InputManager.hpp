@@ -3,7 +3,7 @@
 
 #include "Core.hpp"
 
-//class Game;
+namespace lpe {
 class InputManager {
 public:
 	/*class Keyboard
@@ -68,5 +68,6 @@ private:
 	bool ButtonsDown[sf::Mouse::Button::ButtonCount];
 	bool ButtonsUp[sf::Mouse::Button::ButtonCount];
 };
+}
 
 #endif // INPUT_H

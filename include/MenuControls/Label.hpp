@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include <MenuControls/ControlBase.hpp>
 
+namespace lpe {
 class Label : public ControlBase { //, sf::Text
 public:
 	Label(const sf::String& text, unsigned int size = 20, const sf::Vector2f& pos = sf::Vector2f(), float rot = 0);
@@ -36,5 +37,5 @@ protected:
 private:
 	sf::Text m_Text;
 };
-
+}
 #endif // ME_LABEL_H

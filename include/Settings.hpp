@@ -6,7 +6,7 @@
 #define SETTINGS_H
 
 #include <SFML\Graphics.hpp>
-
+namespace lpe{
 class Settings {
 public:
 	/** Default constructor */
@@ -26,5 +26,5 @@ private:
 	bool m_ShowFps;
 	sf::VideoMode m_VideoMode;
 };
-
+}
 #endif // SETTINGS_H

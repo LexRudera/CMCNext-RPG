@@ -1,8 +1,7 @@
 //---------------------------------------------
-// Derpy Delivery
-// Mail Engine based on SFML
+// CMC Next
+// LPEngine based on SFML
 // Programmed by Lex Rudera - lex@pulsewave.co
-// zlib licence
 //---------------------------------------------
 
 #include "Core.hpp"

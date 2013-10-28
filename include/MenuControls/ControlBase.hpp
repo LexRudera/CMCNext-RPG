@@ -2,10 +2,10 @@
 #define CONTROLBASE_H
 
 #include "Object.hpp"
-
+namespace lpe {
 class Menu;
-// MenuEvent type definition
-typedef void (Menu::* MenuEvent)();
+typedef void (Menu::* MenuEvent)(); // MenuEvent type definition
+
 class ControlBase : public Object {
 public:
 	ControlBase();
@@ -21,5 +21,5 @@ protected:
 private:
 	bool m_Scrolling = true;
 };
-
+}
 #endif // CONTROLBASE_H

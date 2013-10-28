@@ -9,6 +9,7 @@
 
 #include <Object.hpp>
 
+namespace lpe {
 class Background : public Object {
 public:
 	Background();
@@ -26,5 +27,6 @@ protected:
 private:
 	std::vector<sf::Sprite*> m_BgTextures;
 };
+}
 
 #endif // BACKGROUND_H

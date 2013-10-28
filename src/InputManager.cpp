@@ -1,6 +1,7 @@
 #include "InputManager.hpp"
 #include "Utilities.hpp"
 
+namespace lpe {
 InputManager::InputManager() {
 	// Clear the arrays, just to be safe.
 	for (unsigned int i = 0; i < sf::Keyboard::Key::KeyCount; i++) {
@@ -61,4 +62,5 @@ void InputManager::ProcessInput(const sf::Event& event) {
 			break;
 		}
 	}
+}
 }

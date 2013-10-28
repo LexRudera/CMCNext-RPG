@@ -9,6 +9,7 @@
 #include <iostream>
 #include <sstream>
 
+namespace lpe{
 void Error(const std::string& err);
 void CriticalError(const std::string& err);
 void Log(const std::string& txt);
@@ -19,7 +20,6 @@ inline std::string to_string(const T& t) {
 	ss << t;
 	return ss.str();
 }
-
 std::string IntToString(int i);
-
+}
 #endif // GLOBAL_HPP_INCLUDED

@@ -4,6 +4,7 @@
 #include <Menu.hpp>
 #include "MenuControls.hpp"
 
+using namespace lpe;
 class OptionsMenu : public Menu {
 public:
 	/** Default constructor */

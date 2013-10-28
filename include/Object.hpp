@@ -8,7 +8,7 @@
 #define OBJECT_H
 
 #include <SFML\Graphics.hpp>
-
+namespace lpe {
 class Object : public sf::Drawable, public sf::Transformable {
 public:
 	Object();
@@ -41,5 +41,5 @@ protected:
 private:
 	bool m_Logic = true;
 };
-
+}
 #endif // OBJECT_H

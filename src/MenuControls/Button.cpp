@@ -3,6 +3,7 @@
 #include "Core.hpp"
 #include "InputManager.hpp"
 
+namespace lpe {
 Button::Button(Menu* parent,
                const sf::String& text,
                const sf::Vector2f& size,
@@ -50,4 +51,5 @@ void Button::tick() {
 
 void Button::CenterText() {
 	m_Text.setPosition(sf::Vector2f(m_Btn.getSize().x/2-m_Text.getLocalBounds().width/2, m_Btn.getSize().y/2-m_Text.getCharacterSize()/4*3));//-m_Text.getLocalBounds().height/2));
+}
 }

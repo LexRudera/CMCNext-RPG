@@ -1,5 +1,6 @@
 #include "MenuControls\StaticBox.hpp"
 
+namespace lpe {
 StaticBox::StaticBox(const sf::Vector2f& size, const sf::Vector2f& pos, const float& rot)
 	: m_Box(size) {
 	setPosition(pos);
@@ -29,4 +30,5 @@ void StaticBox::ApplyStyle(const BoxStyle& style) {
 
 BoxStyle StaticBox::GetStyle() {
 	return BoxStyle(m_Box.getTexture(), m_Box.getFillColor() ,m_Box.getOutlineColor(), m_Box.getOutlineThickness());
+}
 }

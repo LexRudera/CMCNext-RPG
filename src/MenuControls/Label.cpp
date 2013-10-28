@@ -2,6 +2,7 @@
 #include "MenuControls/Label.hpp"
 #include "Core.hpp"
 
+namespace lpe {
 Label::Label(const sf::String& text, unsigned int size, const sf::Vector2f& pos, float rot) {
 	LoadFont();
 	m_Text.setString(text);
@@ -32,4 +33,5 @@ bool Label::LoadFont(const sf::String& font) {
 	}
 	m_Text.setFont(*t);
 	return true;
+}
 }

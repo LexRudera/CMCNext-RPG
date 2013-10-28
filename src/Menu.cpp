@@ -2,6 +2,7 @@
 #include "Core.hpp"
 #include "Utilities.hpp"
 
+namespace lpe {
 Menu::Menu() {
 	//ctor
 }
@@ -27,4 +28,5 @@ bool Menu::ButtonReady() {
 		return true;
 	}
 	return false;
+}
 }

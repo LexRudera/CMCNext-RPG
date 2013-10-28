@@ -6,6 +6,7 @@
 #include "MenuControls/StaticBox.hpp"
 #include "Menu.hpp"
 
+namespace lpe {
 struct BtnStateStyle;
 class Button : public ControlBase {
 public:
@@ -53,5 +54,5 @@ private:
 	BoxStyle* DownStyle = 0;
 	BoxStyle* HoverStyle = 0;
 };
-
+}
 #endif // ME_BUTTON_H

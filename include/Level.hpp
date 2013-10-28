@@ -3,6 +3,7 @@
 
 #include "Scene.hpp"
 
+using namespace lpe;
 class Level : public Scene {
 public:
 	/** Default constructor */

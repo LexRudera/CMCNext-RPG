@@ -3,6 +3,7 @@
 
 #include <MenuControls/ControlBase.hpp>
 
+namespace lpe {
 class Image : public ControlBase {
 public:
 	Image(const sf::String& image, const sf::Vector2f& pos = sf::Vector2f(), const sf::Vector2i& size = Image::DefaultSize, float rot = 0);
@@ -20,5 +21,5 @@ protected:
 private:
 	sf::Sprite m_Img;
 };
-
+}
 #endif // MENU_IMAGE_HPP

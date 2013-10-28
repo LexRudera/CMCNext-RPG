@@ -4,6 +4,7 @@
 #include <MenuControls\ControlBase.hpp>
 #include "MenuControls\ControlsShared.hpp"
 
+namespace lpe {
 class StaticBox : public ControlBase {
 public:
 	StaticBox(const sf::Vector2f& size = sf::Vector2f(100,100), const sf::Vector2f& pos = sf::Vector2f(), const float& rot = 0);
@@ -31,5 +32,5 @@ protected:
 private:
 	sf::RectangleShape m_Box;
 };
-
+}
 #endif // STATICBOX_H

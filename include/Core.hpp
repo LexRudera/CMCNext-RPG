@@ -7,7 +7,7 @@
 #include "Scene.hpp"
 #include "ResourceManager.hpp"
 //#include "InputManager.hpp"
-
+namespace lpe {
 class InputManager;
 class Core {
 public:
@@ -47,5 +47,5 @@ private:
 	static sf::Time sm_frameTime;
 	static Core* sm_Instance;
 };
-
+}
 #endif // GAME_H

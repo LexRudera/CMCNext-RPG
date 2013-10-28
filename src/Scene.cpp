@@ -1,6 +1,7 @@
 #include "Scene.hpp"
 #include "Utilities.hpp"
 
+namespace lpe{
 Scene::Scene() {
 	//ctor
 }
@@ -35,4 +36,5 @@ void Scene::Render(sf::RenderTarget& target) {
 		//Log("Render loop: " + *((Label)m_Objects[i]).GetString());
 		target.draw(*m_Objects[i],sf::RenderStates::Default);
 	}
+}
 }

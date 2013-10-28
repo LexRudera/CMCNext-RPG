@@ -1,6 +1,7 @@
 #include "MenuControls/Image.hpp"
 #include "Core.hpp"
 
+namespace lpe {
 sf::Vector2i Image::DefaultSize;
 
 Image::Image(const sf::String& image, const sf::Vector2f& pos, const sf::Vector2i& size, float rot) {
@@ -38,4 +39,5 @@ bool Image::LoadTexture(const sf::String& strng) {
 	}
 	m_Img.setTexture(*t);
 	return true;
+}
 }

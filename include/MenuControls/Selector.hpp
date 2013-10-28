@@ -5,6 +5,7 @@
 #include "MenuControls\StaticBox.hpp"
 #include "MenuControls\Label.hpp"
 
+namespace lpe {
 class Selector : public ControlBase {
 public:
 	/** Default constructor */
@@ -38,5 +39,5 @@ private:
 	sf::ConvexShape m_ArrowRight;
 	sf::ConvexShape m_ArrowLeft;
 };
-
+}
 #endif // Selector_H

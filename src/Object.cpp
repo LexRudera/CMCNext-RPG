@@ -1,5 +1,5 @@
 #include "Object.hpp"
-
+namespace lpe {
 Object::Object() {
 	//ctor
 }
@@ -16,4 +16,5 @@ void Object::DoTick() {
 
 void Object::tick() {
 
+}
 }

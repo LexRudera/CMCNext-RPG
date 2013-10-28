@@ -3,6 +3,7 @@
 #include <iostream>
 #include "Utilities.hpp"
 
+namespace lpe {
 sf::Time Core::sm_frameTime;
 Core* Core::sm_Instance;
 
@@ -109,4 +110,5 @@ void Core::ChangeScene(Scene* scn, const Persistence& depth) {
 	return;*/
 	m_LvlChngMsg = depth;
 	m_nextscene = scn;
+}
 }

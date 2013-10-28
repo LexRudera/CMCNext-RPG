@@ -2,6 +2,7 @@
 #include "Utilities.hpp"
 #include "Core.hpp"
 
+namespace lpe {
 Background::Background() {
 	//ctor
 }
@@ -49,4 +50,5 @@ void Background::Remove(int at) {
 // realitve to the rest of the background.
 sf::Sprite* Background::GetLayer(int i) {
 	return m_BgTextures[i];
+}
 }

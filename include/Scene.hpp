@@ -5,6 +5,7 @@
 #include "Object.hpp"
 #include "Background.hpp"
 
+namespace lpe{
 class Scene {
 public:
 	/** Default constructor */
@@ -27,5 +28,5 @@ protected:
 private:
 	Background* m_Background = 0;
 };
-
+}
 #endif // SCENE_H

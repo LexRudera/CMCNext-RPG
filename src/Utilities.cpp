@@ -2,6 +2,7 @@
 #include "Core.hpp"
 #include <sstream>
 
+namespace lpe{
 void Error(const std::string& err) {
 	std::cerr << err << std::endl;
 }
@@ -45,4 +46,5 @@ std::string IntToString(int i) {
 		// add 48 on top of it, to allign the number with the ASCII character scheme.
 	}
 	return std::string(num);
+}
 }

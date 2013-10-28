@@ -10,6 +10,7 @@
 #include <SFML\Graphics.hpp>
 #include <SFML\Audio.hpp>
 
+namespace lpe{
 enum Persistence
 { Level, Campaign, Global, };
 
@@ -101,5 +102,5 @@ private:
 		virtual ~SoundEntry() {}
 	};
 };
-
+}
 #endif // RESOURCEMANAGER_H
