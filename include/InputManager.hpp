@@ -6,26 +6,7 @@
 namespace lpe {
 class InputManager {
 public:
-	/*class Keyboard
-	{
-	    public:
-	        static bool IsKeyPressed(sf::Keyboard::Key k) { return sf::Keyboard::isKeyPressed(k); }
-	    protected:
-	    private:
-	};
-
-	class Mouse
-	{
-	    public:
-	        static bool isButtonPressed(sf::Mouse::Button b) { return sf::Mouse::isButtonPressed(b); }
-	        static sf::Vector2i getPosition() { return sf::Mouse::getPosition(); }
-	        static sf::Vector2i getPosition(const sf::Window &relativeTo) { return sf::Mouse::getPosition(relativeTo); }
-	        static void setPosition (const sf::Vector2i &position) { sf::Mouse::setPosition(position); }
-	        static void setPosition (const sf::Vector2i &position, const sf::Window &relativeTo) { sf::Mouse::setPosition(position, relativeTo); }
-	    protected:
-	    private:
-	};*/
-	InputManager();
+	InputManager(Core* parent);
 	virtual ~InputManager();
 
 	void ProcessInput(const sf::Event& event);
@@ -52,7 +33,7 @@ public:
 		return ButtonsUp[key];
 	}
 	sf::Vector2i GetMousePos() {
-		return sf::Mouse::getPosition(*Core::Get()->GetWindow());
+		return sf::Mouse::getPosition(*m_Root->GetWindow());
 	}
 	sf::Vector2i GetAbsoluteMousePos() {
 		return sf::Mouse::getPosition();
@@ -67,6 +48,8 @@ private:
 	bool ButtonsPressed[sf::Mouse::Button::ButtonCount];
 	bool ButtonsDown[sf::Mouse::Button::ButtonCount];
 	bool ButtonsUp[sf::Mouse::Button::ButtonCount];
+
+	Core* m_Root;
 };
 }
 

@@ -1,6 +1,6 @@
 #include "Utilities.hpp"
 #include "MenuControls/Label.hpp"
-#include "Core.hpp"
+#include "Game.hpp"
 
 namespace lpe {
 Label::Label(const sf::String& text, unsigned int size, const sf::Vector2f& pos, float rot) {
@@ -26,7 +26,7 @@ void Label::draw(sf::RenderTarget& target, sf::RenderStates states) const {
 }
 
 bool Label::LoadFont(const sf::String& font) {
-	const sf::Font* t = Core::Get()->GetResourceManager()->GetFont(font);
+	const sf::Font* t = Game::Get()->GetCore()->GetResourceManager()->GetFont(font);
 	if (t == 0) {
 		//delete t;
 		return false;

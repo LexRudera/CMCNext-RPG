@@ -1,5 +1,5 @@
-#ifndef GAME_H
-#define GAME_H
+#ifndef CORE_H
+#define CORE_H
 
 #include <string>
 #include <SFML/Graphics.hpp>
@@ -22,14 +22,13 @@ public:
 	}
 	void ChangeScene(Scene* scn, const Persistence& depth = Level);
 
-	sf::Time* GetFrameTime() {return &Core::sm_frameTime;}
+	const sf::Time* GetFrameTime() const {return &m_frameTime;}
 	Settings* GetConfiguration() {return m_config;}
 	ResourceManager* GetResourceManager() {return m_ResManager;}
 	InputManager* GetInputManager() {return m_InputMan;}
 
-	static Core* Get() {return sm_Instance;}
-	static void Quit() {
-		Core::sm_Instance->GetWindow()->close();
+	void Quit() {
+		GetWindow()->close();
 	}
 protected:
 private:
@@ -44,8 +43,7 @@ private:
 	ResourceManager* m_ResManager;
 	InputManager* m_InputMan;
 
-	static sf::Time sm_frameTime;
-	static Core* sm_Instance;
+	sf::Time m_frameTime;
 };
-};
-#endif // GAME_H
+}
+#endif // CORE_H

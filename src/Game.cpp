@@ -1,4 +1,7 @@
 #include "Game.hpp"
+#include "MainMenu.hpp"
+
+Game* Game::m_Instance;
 
 Game::Game()
 {
@@ -8,4 +11,8 @@ Game::Game()
 Game::~Game()
 {
 	//dtor
+}
+
+int Game::Run() {
+	return m_GameCore->Run(new MainMenu);
 }

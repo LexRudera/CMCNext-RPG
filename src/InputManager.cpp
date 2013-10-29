@@ -2,7 +2,10 @@
 #include "Utilities.hpp"
 
 namespace lpe {
-InputManager::InputManager() {
+InputManager::InputManager(Core* parent) {
+	// Set the root core
+	m_Root = parent;
+
 	// Clear the arrays, just to be safe.
 	for (unsigned int i = 0; i < sf::Keyboard::Key::KeyCount; i++) {
 		KeysPressed[i] = false;

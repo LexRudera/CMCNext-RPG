@@ -1,16 +1,16 @@
-#include "Core.hpp"
+#include "Game.hpp"
 #include "InputManager.hpp"
 #include <iostream>
 #include "Utilities.hpp"
 
 namespace lpe {
-sf::Time Core::sm_frameTime;
-Core* Core::sm_Instance;
+//sf::Time Core::sm_frameTime;
+//Core* Core::sm_Instance;
 
 Core::Core() {
-	Core::sm_Instance = this;
+	//Core::m_Instance = this;
 	m_ResManager = new ResourceManager();
-	m_InputMan = new InputManager();
+	m_InputMan = new InputManager(this);
 	GetResourceManager()->LoadFont("Gentium", "Gentium-R.ttf",Global);
 }
 
@@ -28,7 +28,7 @@ Core::~Core() {
 
 int Core::Run(Scene* scn) {
 	//Log("Initializing");
-	Core::sm_frameTime = m_clk.restart();
+	m_frameTime = m_clk.restart();
 	//m_window = new sf::RenderWindow(sf::VideoMode(800,600),"Some Game",sf::Style::Fullscreen/*sf::Style::Titlebar*/);
 	m_window = new sf::RenderWindow(sf::VideoMode(800,600),"Some Game", sf::Style::Titlebar);
 
@@ -84,7 +84,7 @@ int Core::Run(Scene* scn) {
 		GetActiveScene()->Render(*m_window);
 		//Log("Rendering FPS");
 		if (GetConfiguration()->ShowFps() && m_window->isOpen()) { // Why it matters if the window is open or not, I don't know.
-			FpsTxt.setString(to_string(1/Core::sm_frameTime.asSeconds()));
+			FpsTxt.setString(to_string(1/m_frameTime.asSeconds()));
 			m_window->draw(FpsTxt);
 		}
 		m_window->display();
@@ -93,7 +93,7 @@ int Core::Run(Scene* scn) {
 		// After frame stuff
 		//-------------------
 		//Log("After");
-		Core::sm_frameTime = m_clk.restart();
+		m_frameTime = m_clk.restart();
 		//Log("Aftered");
 	}
 	return 0;
@@ -108,6 +108,7 @@ void Core::ChangeScene(Scene* scn, const Persistence& depth) {
 	m_activeScene = scn;
 	Log("Changed scene");
 	return;*/
+
 	m_LvlChngMsg = depth;
 	m_nextscene = scn;
 }

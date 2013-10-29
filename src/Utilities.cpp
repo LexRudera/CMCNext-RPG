@@ -1,5 +1,5 @@
 #include "Utilities.hpp"
-#include "Core.hpp"
+#include "Game.hpp"
 #include <sstream>
 
 namespace lpe{
@@ -10,7 +10,7 @@ void CriticalError(const std::string& err) {
 	std::cerr << err << std::endl;
 	int i;
 	std::cin >> i;
-	Core::Quit();
+	Game::Get()->GetCore()->Quit();
 }
 void Log(const std::string& txt) {
 	std::cout << txt << std::endl;

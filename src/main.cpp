@@ -4,22 +4,21 @@
 // Programmed by Lex Rudera - lex@pulsewave.co
 //---------------------------------------------
 
-#include "Core.hpp"
-#include "Settings.hpp"
-#include "MainMenu.hpp"
+#include "Game.hpp"
+//#include "Settings.hpp"
 #include "Utilities.hpp"
 #include <iostream>
 
 int main() {
-	Log("");
-	Log("Running");
-	Log("Setting up game instance");
-	Core Derp(new Settings());
-	Log("Firing up the game.");
+	lpe::Log("");
+	lpe::Log("Running");
+	lpe::Log("Setting up game instance");
+	Game CmcNext;
+	lpe::Log("Firing up the game.");
 
-	int ErrorCode = Derp.Run(new MainMenu());
+	int ErrorCode = CmcNext.Run();
 	if (ErrorCode != 0) {
-		Error(IntToString(ErrorCode));
+		lpe::Error(lpe::IntToString(ErrorCode));
 	}
 		return ErrorCode;
 }
