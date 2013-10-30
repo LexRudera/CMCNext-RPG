@@ -5,6 +5,7 @@ Game* Game::m_Instance;
 
 Game::Game()
 {
+	m_GameCore = new lpe::Core(new lpe::Settings());
 	//ctor
 }
 

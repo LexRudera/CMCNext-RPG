@@ -7,9 +7,7 @@
 using namespace lpe;
 class OptionsMenu : public Menu {
 public:
-	/** Default constructor */
 	OptionsMenu();
-	/** Default destructor */
 	virtual ~OptionsMenu();
 	void Load();
 protected:
