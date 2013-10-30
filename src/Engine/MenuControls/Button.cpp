@@ -9,7 +9,6 @@ Button::Button(Menu* parent,
                const sf::Vector2f& size,
                const sf::Vector2f& pos,
                float rot) : m_Text(text), m_Btn(size) {
-	lpe::Log("Creating Button");
 	m_Parent = parent;
 	// Object properties
 	setPosition(pos);
