@@ -1,8 +1,9 @@
 #ifndef AREA_H
 #define AREA_H
 
+#include "Scene.hpp"
 
-class Area
+class Area : lpe::Scene
 {
 	public:
 		Area();
