@@ -54,6 +54,9 @@
 			<Add directory="./lib" />
 			<Add directory="$(#SFML)/lib" />
 		</Linker>
+		<ExtraCommands>
+			<Add after="Post-compilation.bat" />
+		</ExtraCommands>
 		<Unit filename="include/Area.hpp" />
 		<Unit filename="include/Battle.hpp" />
 		<Unit filename="include/Engine/Background.hpp" />
