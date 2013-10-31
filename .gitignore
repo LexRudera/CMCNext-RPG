@@ -3,3 +3,4 @@
 *.depend
 obj/
 bin/
+*.bat
