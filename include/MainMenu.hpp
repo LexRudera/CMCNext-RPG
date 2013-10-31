@@ -13,14 +13,17 @@ public:
 protected:
 private:
 	Label* Title;
+	Label* Subtitle;
 	Image* ComplementaryPicture;
 	Button* PlayBtn;
+	Button* LoadBtn;
 	Button* OptionsBtn;
 	Button* QuitBtn;
 
 	void PlayBtn_OnClick();
 	void OptionsBtn_OnClick();
 	void QuitBtn_OnClick();
+	void LoadBtn_OnClick();
 };
 
 #endif // MAINMENU_H
