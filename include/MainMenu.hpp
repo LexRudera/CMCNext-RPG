@@ -12,7 +12,8 @@ public:
 	void Load();
 protected:
 private:
-	Label* Title;
+	//Label* Title;
+	Image* Title;
 	Label* Subtitle;
 	Image* ComplementaryPicture;
 	Button* PlayBtn;

@@ -14,8 +14,8 @@ MainMenu::~MainMenu() {
 void MainMenu::Load() {
 	lpe::Log("Loading MainMenu");
 	// Load Resources
-	/*Game::Get()->GetCore()->GetResourceManager()->LoadTexture("Background 1", "bg1.png");
-	Game::Get()->GetCore()->GetResourceManager()->LoadTexture("Background 2", "bg2.png");
+	Game::Get()->GetCore()->GetResourceManager()->LoadTexture("CMC Next Logo", "cmclogo.png");
+	/*Game::Get()->GetCore()->GetResourceManager()->LoadTexture("Background 2", "bg2.png");
 	Game::Get()->GetCore()->GetResourceManager()->LoadTexture("Background 3", "bg3.png");
 	Game::Get()->GetCore()->GetResourceManager()->LoadTexture("Background 4", "bg4.png");
 	Game::Get()->GetCore()->GetResourceManager()->LoadTexture("Pretty Texture","Pretty Texture.png");*/
@@ -29,8 +29,10 @@ void MainMenu::Load() {
 	ApplyBackground(Bg);*/
 
 	// Create controls
-	Add(Title = new Label("CMC Next",50,sf::Vector2f(50,70)));
-	Add(Subtitle = new Label("Developer Version",20,sf::Vector2f(90,120)));
+	//Add(Title = new Label("CMC Next",50,sf::Vector2f(50,70)));
+	Add(Title = new Image("CMC Next Logo",sf::Vector2f(50,70),sf::Vector2i(500,150)));
+	//Add(Subtitle = new Label("Developer Version",20,sf::Vector2f(90,120)));
+	Add(Subtitle = new Label("Developer Version",20,sf::Vector2f(90,190)));
 	//Add(ComplementaryPicture = new Image("Pretty Texture",sf::Vector2f(150,75)));
 	int windowWidth = Game::Get()->GetCore()->GetWindow()->getSize().x;
 	int windowHeight = Game::Get()->GetCore()->GetWindow()->getSize().y;
