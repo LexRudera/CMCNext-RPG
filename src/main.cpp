@@ -5,7 +5,7 @@
 //---------------------------------------------
 
 #include "Game.hpp"
-//#include "Settings.hpp"
+#include "MainMenu.hpp"
 #include "Utilities.hpp"
 #include <iostream>
 
@@ -16,7 +16,7 @@ int main() {
 	Game CmcNext;
 	lpe::Log("Firing up the game.");
 
-	int ErrorCode = CmcNext.Launch();
+	int ErrorCode = CmcNext.Run(new MainMenu);
 	if (ErrorCode != 0) {
 		lpe::Error(lpe::IntToString(ErrorCode));
 	}

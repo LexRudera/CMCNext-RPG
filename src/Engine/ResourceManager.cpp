@@ -55,6 +55,7 @@ void ResourceManager::Clear(Persistence depth) {
 
 // ---Fonts---
 const sf::Font* ResourceManager::LoadFont(const sf::String& Name, const sf::String& FileName, const Persistence& persist) {
+	Log("Loading Resource, Font: " + Name + ", " + FileName);
 	// Check for existing font
 	FontEntry* e = 0;
 	if (persist != Level) {
@@ -119,6 +120,7 @@ const sf::Texture* ResourceManager::LoadTexture(const sf::String& Name, const sf
 	}
 	m_Textures.push_back(t);
 	return t;*/
+	Log("Loading Resource, Texture: " + Name + ", " + FileName);
 	// Check for existing Texture
 	TextureEntry* e = 0;
 	if (persist != Level) {
@@ -183,6 +185,7 @@ const sf::SoundBuffer* ResourceManager::LoadSound(const sf::String& Name, const 
 	}
 	m_Sounds.push_back(t);
 	return t;*/
+	Log("Loading Resource, Sound: " + Name + ", " + FileName);
 	// Check for existing Sound
 	SoundEntry* e = 0;
 	if (persist != Level) {

@@ -26,7 +26,7 @@ void Label::draw(sf::RenderTarget& target, sf::RenderStates states) const {
 }
 
 bool Label::LoadFont(const sf::String& font) {
-	const sf::Font* t = Game::Get()->GetCore()->GetResourceManager()->GetFont(font);
+	const sf::Font* t = Game::Get()->GetResourceManager()->GetFont(font);
 	if (t == 0) {
 		//delete t;
 		return false;

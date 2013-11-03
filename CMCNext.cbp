@@ -87,6 +87,7 @@
 		<Unit filename="include/OptionsMenu.hpp" />
 		<Unit filename="include/Party.hpp" />
 		<Unit filename="include/Player.hpp" />
+		<Unit filename="include/Spritesheet.hpp" />
 		<Unit filename="include/StaticEnt.hpp" />
 		<Unit filename="src/Area.cpp" />
 		<Unit filename="src/AreaCollider.cpp" />
@@ -116,6 +117,7 @@
 		<Unit filename="src/OptionsMenu.cpp" />
 		<Unit filename="src/Party.cpp" />
 		<Unit filename="src/Player.cpp" />
+		<Unit filename="src/Spritesheet.cpp" />
 		<Unit filename="src/StaticEnt.cpp" />
 		<Unit filename="src/main.cpp" />
 		<Extensions>

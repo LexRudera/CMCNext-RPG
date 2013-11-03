@@ -54,7 +54,7 @@ void Selector::draw(sf::RenderTarget& target, sf::RenderStates states) const {
 
 void Selector::tick() {
 	// Sense the mouse and save it's position
-	const sf::Vector2i& MPos = Game::Get()->GetCore()->GetInputManager()->GetMousePos();
+	const sf::Vector2i& MPos = Game::Get()->GetInputManager()->GetMousePos();
 
 	/*if (MPos.x > getPosition().x // Below the x pos
 	    && MPos.x < getPosition().x + m_Box.GetSize().x // Above the lower box bounds
@@ -62,7 +62,7 @@ void Selector::tick() {
 	    && MPos.y < getPosition().y + m_Box.GetSize().y) // Before the right box bounds
 	{
 	    // On Click
-	    if (Game::Get()->GetCore()->GetInputManager()->IsButtonUp(sf::Mouse::Button::Left))
+	    if (Game::Get()->GetInputManager()->IsButtonUp(sf::Mouse::Button::Left))
 	    {
 	        // Shit got clicked!
 	        OnClick();
@@ -73,7 +73,7 @@ void Selector::tick() {
 	        && MPos.y > getPosition().y // Past the y pos
 	        && MPos.y < getPosition().y + m_ArrowLeft.getPosition().y + m_ArrowLeft.getLocalBounds().height) { // Before the right box bounds
 		// On Click
-		if (Game::Get()->GetCore()->GetInputManager()->IsButtonDown(sf::Mouse::Button::Left)) {
+		if (Game::Get()->GetInputManager()->IsButtonDown(sf::Mouse::Button::Left)) {
 			if(m_Entries.size() != 0) {
 				if (m_CurrentEntry == 0)
 					m_CurrentEntry = m_Entries.size()-1;
@@ -88,7 +88,7 @@ void Selector::tick() {
 	        && MPos.y > getPosition().y + m_ArrowRight.getPosition().y // Past the y pos
 	        && MPos.y < getPosition().y + m_ArrowRight.getPosition().y + m_ArrowRight.getLocalBounds().height) { // Before the right box bounds
 		// On Click
-		if (Game::Get()->GetCore()->GetInputManager()->IsButtonDown(sf::Mouse::Button::Left)) {
+		if (Game::Get()->GetInputManager()->IsButtonDown(sf::Mouse::Button::Left)) {
 			if(m_Entries.size() != 0) {
 				if (m_CurrentEntry == m_Entries.size()-1)
 					m_CurrentEntry = 0;

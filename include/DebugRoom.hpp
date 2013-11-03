@@ -9,6 +9,7 @@ class DebugRoom : public Area
 	public:
 		DebugRoom();
 		virtual ~DebugRoom();
+		void Load();
 	protected:
 	private:
 };

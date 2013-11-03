@@ -19,6 +19,10 @@ class Character : public Entity
 public:
 	Character();
 	virtual ~Character();
+	// Accessors
+	bool IsAutonomous() {return m_Autonomous;}
+
+	void IsAutonomous(bool a) {m_Autonomous = a;}
 protected:
 private:
 	Direction m_Facing;

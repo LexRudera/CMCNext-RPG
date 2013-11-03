@@ -4,11 +4,12 @@
 
 class AreaCollider
 {
-	public:
-		AreaCollider();
-		virtual ~AreaCollider();
-	protected:
-	private:
+public:
+	AreaCollider();
+	virtual ~AreaCollider();
+protected:
+private:
+
 };
 
 #endif // AREACOLLIDER_H
