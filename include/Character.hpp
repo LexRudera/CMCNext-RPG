@@ -1,7 +1,7 @@
 #ifndef CHARACTER_H
 #define CHARACTER_H
 
-#include <Object.hpp>
+#include "Entity.hpp"
 
 enum Direction {
 Up,
@@ -14,7 +14,7 @@ Left,
 UpLeft,
 };
 
-class Character : public lpe::Object
+class Character : public Entity
 {
 public:
 	Character();

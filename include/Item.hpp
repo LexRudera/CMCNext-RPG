@@ -1,16 +1,15 @@
 #ifndef ITEM_H
 #define ITEM_H
 
-#include <Object.hpp>
+#include "Entity.hpp"
 
-
-class Item : public lpe::Object
+class Item : public Entity
 {
-	public:
-		Item();
-		virtual ~Item();
-	protected:
-	private:
+public:
+	Item();
+	virtual ~Item();
+protected:
+private:
 };
 
 #endif // ITEM_H

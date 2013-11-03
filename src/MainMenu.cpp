@@ -52,7 +52,7 @@ void MainMenu::Load() {
 
 void MainMenu::PlayBtn_OnClick() {
 	Log("Pleh");
-//	Game::Get()->GetCore()->ChangeScene(new GameMenu());
+	Game::Get()->StartNewGame();
 	//Core::Quit();
 }
 void MainMenu::LoadBtn_OnClick() {

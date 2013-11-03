@@ -7,6 +7,7 @@ Game::Game()
 {
 	m_Instance = this;
 	m_GameCore = new lpe::Core(new lpe::Settings());
+	m_Party = new Party();
 	//ctor
 }
 
@@ -15,6 +16,10 @@ Game::~Game()
 	//dtor
 }
 
-int Game::Run() {
+int Game::Launch() {
 	return m_GameCore->Run(new MainMenu);
+}
+
+int Game::StartNewGame() {
+	return 1;
 }

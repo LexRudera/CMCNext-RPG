@@ -16,7 +16,7 @@ int main() {
 	Game CmcNext;
 	lpe::Log("Firing up the game.");
 
-	int ErrorCode = CmcNext.Run();
+	int ErrorCode = CmcNext.Launch();
 	if (ErrorCode != 0) {
 		lpe::Error(lpe::IntToString(ErrorCode));
 	}

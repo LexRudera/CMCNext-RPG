@@ -58,8 +58,10 @@
 			<Add after="Post-compilation.bat" />
 		</ExtraCommands>
 		<Unit filename="include/Area.hpp" />
+		<Unit filename="include/AreaCollider.hpp" />
 		<Unit filename="include/Battle.hpp" />
 		<Unit filename="include/Character.hpp" />
+		<Unit filename="include/DebugRoom.hpp" />
 		<Unit filename="include/Engine/Background.hpp" />
 		<Unit filename="include/Engine/Core.hpp" />
 		<Unit filename="include/Engine/InputManager.hpp" />
@@ -77,6 +79,7 @@
 		<Unit filename="include/Engine/Scene.hpp" />
 		<Unit filename="include/Engine/Settings.hpp" />
 		<Unit filename="include/Engine/Utilities.hpp" />
+		<Unit filename="include/Entity.hpp" />
 		<Unit filename="include/Game.hpp" />
 		<Unit filename="include/Inventory.hpp" />
 		<Unit filename="include/Item.hpp" />
@@ -84,9 +87,12 @@
 		<Unit filename="include/OptionsMenu.hpp" />
 		<Unit filename="include/Party.hpp" />
 		<Unit filename="include/Player.hpp" />
+		<Unit filename="include/StaticEnt.hpp" />
 		<Unit filename="src/Area.cpp" />
+		<Unit filename="src/AreaCollider.cpp" />
 		<Unit filename="src/Battle.cpp" />
 		<Unit filename="src/Character.cpp" />
+		<Unit filename="src/DebugRoom.cpp" />
 		<Unit filename="src/Engine/Background.cpp" />
 		<Unit filename="src/Engine/Core.cpp" />
 		<Unit filename="src/Engine/InputManager.cpp" />
@@ -102,6 +108,7 @@
 		<Unit filename="src/Engine/Scene.cpp" />
 		<Unit filename="src/Engine/Settings.cpp" />
 		<Unit filename="src/Engine/Utilities.cpp" />
+		<Unit filename="src/Entity.cpp" />
 		<Unit filename="src/Game.cpp" />
 		<Unit filename="src/Inventory.cpp" />
 		<Unit filename="src/Item.cpp" />
@@ -109,6 +116,7 @@
 		<Unit filename="src/OptionsMenu.cpp" />
 		<Unit filename="src/Party.cpp" />
 		<Unit filename="src/Player.cpp" />
+		<Unit filename="src/StaticEnt.cpp" />
 		<Unit filename="src/main.cpp" />
 		<Extensions>
 			<code_completion />
