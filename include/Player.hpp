@@ -6,11 +6,16 @@
 
 class Player : public Character
 {
-	public:
-		Player();
-		virtual ~Player();
-	protected:
-	private:
+public:
+	Player();
+	virtual ~Player();
+
+	void Load();
+
+
+protected:
+	void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+private:
 };
 
 #endif // PLAYER_HPP

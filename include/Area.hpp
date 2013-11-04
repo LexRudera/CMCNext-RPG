@@ -2,13 +2,14 @@
 #define AREA_H
 
 #include "Scene.hpp"
-#include "AreaCollider.hpp"
+#include "Entity.hpp"
 
 class Area : public lpe::Scene, public AreaCollider
 {
 public:
 	Area();
 	virtual ~Area();
+	Entity* AddEntity(Entity* ent);
 protected:
 private:
 };

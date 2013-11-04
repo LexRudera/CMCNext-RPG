@@ -1,5 +1,6 @@
 #include "DebugRoom.hpp"
 #include "Game.hpp"
+#include "Player.hpp"
 
 DebugRoom::DebugRoom() {
 	//ctor
@@ -15,4 +16,6 @@ void DebugRoom::Load() {
 	lpe::Background* bg = new lpe::Background();
 	bg->Add(Game::Get()->GetResourceManager()->GetTexture("Debug Background"));
 	ApplyBackground(bg);
+
+    AddEntity(new Player())->Load();
 }
