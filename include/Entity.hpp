@@ -11,9 +11,10 @@ public:
 	Entity();
 	virtual ~Entity();
 	virtual void Load() = 0;
+	Spritesheet* GetSpritesheet() {return &m_Spritesheet;}
 protected:
 private:
-	Spritesheet m_spritesheet;
+	Spritesheet m_Spritesheet;
 	bool m_Loaded = false;
 };
 
