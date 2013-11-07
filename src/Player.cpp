@@ -14,7 +14,7 @@ Player::~Player()
 void Player::Load() {
 	Game::Get()->GetResourceManager()->LoadTexture("Morty Idle Left", "mortem_idle_left.png");
 	GetSpritesheet()->AddSheet(Game::Get()->GetResourceManager()->GetTexture("Morty Idle Left"));
-	int a[][3] = {{1,1,1},{0,0,0}};
+	unsigned int a[][3] = {{0,0,0}};
 	GetSpritesheet()->AddSequence("Morty Idle Left",a,1,0);
 }
 

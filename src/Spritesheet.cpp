@@ -21,10 +21,10 @@ bool Spritesheet::AddSheet(const sf::Texture* tex, int tilesX, int tilesY, int t
 	if (tileHeight = 0) s.TileHeight = tex->getSize().y/tilesY;
 	else s.TileHeight = tileHeight;
 	m_Sheets.push_back(s);
-	return true
+	return true;
 }
 
-bool Spritesheet::AddSequence(const char* name, int frames[][3], int n, int interval) {
+bool Spritesheet::AddSequence(const char* name, unsigned int frames[][3], int n, int interval) {
 	SpriteSequence s;
 	s.sequenceName = name;
 	for (int i = 0; i<n;i++) {
@@ -36,7 +36,7 @@ bool Spritesheet::AddSequence(const char* name, int frames[][3], int n, int inte
 	}
 	s.intervalMillisec = interval;
 	m_Sequences.push_back(s);
-	if (m_ActiveSequence == 0) m_ActiveSequence = &m_Sequences[0];
+	if (m_ActiveSequence == 0) ActivateSequence(name);
 	return true;
 }
 
@@ -46,11 +46,7 @@ bool Spritesheet::ActivateSequence(const char* seq) {
 			m_ActiveSequence = &m_Sequences[i];
 			m_ActiveFrame = &m_Sequences[i].frames[0];
 
-			m_sprite.setTexture(m_Sheets[m_ActiveFrame->sheet].image);
-			m_Sheets[m_ActiveFrame->sheet].
-			sf::IntRect(m_ActiveFrame->tileX-1*)
-
-			m_sprite.setTextureRect(sf::IntRect(m_ActiveFrame->tileX))
+			ActivateFrame(*m_ActiveFrame);
 			return true;
 		}
 	}
@@ -58,11 +54,19 @@ bool Spritesheet::ActivateSequence(const char* seq) {
 }
 
 void Spritesheet::tick() {
-	if (m_Active)
+	//if (m_Active)
 }
 
 void Spritesheet::draw(sf::RenderTarget& target, sf::RenderStates states) const {
 	if (m_ActiveSequence == 0)
 		return;
-	target.draw(m_Sheets[m_ActiveFrame->sheet].image, states);
+	target.draw(m_sprite, states);
+}
+
+bool Spritesheet::ActivateFrame(Frame& frm) {
+	// Set the sheet
+	m_sprite.setTexture(*m_Sheets[frm.sheet].image);
+	// Set the renderet rectangle
+	sf::IntRect rect(frm.tileX*m_Sheets[frm.sheet].TileWidth, frm.tileY*m_Sheets[frm.sheet].TileHeight, m_Sheets[frm.sheet].TileWidth, m_Sheets[frm.sheet].TileHeight);
+	m_sprite.setTextureRect(rect);
 }
