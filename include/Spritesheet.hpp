@@ -7,8 +7,10 @@
 class Spritesheet : public sf::Drawable
 {
 public:
+	// De/Constructors
 	Spritesheet();
 	virtual ~Spritesheet();
+
 	bool AddSheet(const sf::Texture* tex, int tilesX = 1, int tilesY = 1, int tileWidth = 0, int tileHeight = 0);
 	bool AddSequence(const char* name, unsigned int frames[][3], int n, int interval);
 	bool ActivateSequence(const char* seq);
@@ -41,6 +43,7 @@ private:
 	sf::Sprite m_sprite;
 	unsigned int m_CurrentSequenceIndex;
 	sf::Time m_LastFrameChange;
+	sf::Clock clk;
 
 	bool ActivateFrame(Frame& frm);
 };

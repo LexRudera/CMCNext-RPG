@@ -18,5 +18,3 @@ void Player::Load() {
 	GetSpritesheet()->AddSequence("Morty Idle Left",a,1,0);
 }
 
-void Player::draw(sf::RenderTarget& target, sf::RenderStates states) const {
-}

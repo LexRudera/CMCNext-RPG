@@ -13,6 +13,7 @@ public:
 	virtual void Load() = 0;
 	Spritesheet* GetSpritesheet() {return &m_Spritesheet;}
 protected:
+	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 private:
 	Spritesheet m_Spritesheet;
 	bool m_Loaded = false;

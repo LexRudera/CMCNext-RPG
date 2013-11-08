@@ -9,3 +9,9 @@ Entity::~Entity()
 {
 	//dtor
 }
+
+void Entity::draw(sf::RenderTarget& target, sf::RenderStates states) const {
+	states.transform *= getTransform();
+	//Spritesheet* ss = GetSpritesheet();
+	target.draw(m_Spritesheet, states);
+}

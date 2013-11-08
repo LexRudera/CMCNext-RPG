@@ -47,6 +47,8 @@ bool Spritesheet::ActivateSequence(const char* seq) {
 			m_ActiveFrame = &m_Sequences[i].frames[0];
 
 			ActivateFrame(*m_ActiveFrame);
+			m_CurrentSequenceIndex = 0;
+			m_LastFrameChange =
 			return true;
 		}
 	}
@@ -54,7 +56,9 @@ bool Spritesheet::ActivateSequence(const char* seq) {
 }
 
 void Spritesheet::tick() {
-	//if (m_Active)
+	if (m_ActiveSequence.frames.size() <= 1 || m_ActiveSequence.intervalMillisec == 0)
+		return;
+
 }
 
 void Spritesheet::draw(sf::RenderTarget& target, sf::RenderStates states) const {
