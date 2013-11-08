@@ -12,7 +12,7 @@ public:
 	virtual ~Spritesheet();
 
 	bool AddSheet(const sf::Texture* tex, int tilesX = 1, int tilesY = 1, int tileWidth = 0, int tileHeight = 0);
-	bool AddSequence(const char* name, unsigned int frames[][3], int n, int interval);
+	bool AddSequence(const char* name, unsigned int frames[][3], int n, int fps);
 	bool ActivateSequence(const char* seq);
 	void tick();
 protected:
@@ -33,7 +33,7 @@ private:
 	struct SpriteSequence {
 		std::string sequenceName;
 		std::vector<Frame> frames;
-		unsigned int intervalMillisec;
+		unsigned int intervalMilliseconds;
 	};
 
 	std::vector<Sheet> m_Sheets;
@@ -43,7 +43,7 @@ private:
 	sf::Sprite m_sprite;
 	unsigned int m_CurrentSequenceIndex;
 	sf::Time m_LastFrameChange;
-	sf::Clock clk;
+	sf::Clock m_clk;
 
 	bool ActivateFrame(Frame& frm);
 };

@@ -3,6 +3,9 @@
 
 #include "Core.hpp"
 
+
+typedef sf::Keyboard::Key Key;
+typedef sf::Mouse::Button Button;
 namespace lpe {
 class InputManager {
 public:

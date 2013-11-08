@@ -12,8 +12,8 @@ public:
 
 	void Load();
 
-
 protected:
+	void tick();
 private:
 };
 
