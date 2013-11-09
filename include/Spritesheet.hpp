@@ -38,8 +38,7 @@ private:
 
 	std::vector<Sheet> m_Sheets;
 	std::vector<SpriteSequence> m_Sequences;
-	SpriteSequence* m_ActiveSequence = 0;
-	Frame* m_ActiveFrame = 0;
+	int m_ActiveSequenceItem = -1;
 	sf::Sprite m_sprite;
 	unsigned int m_CurrentSequenceIndex;
 	sf::Time m_LastFrameChange;

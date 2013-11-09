@@ -26,11 +26,8 @@ bool Spritesheet::AddSheet(const sf::Texture* tex, int tilesX, int tilesY, int t
 }
 
 bool Spritesheet::AddSequence(const char* name, unsigned int frames[][3], int n, int fps) {
-lpe::Log("AS1");
 	SpriteSequence s;
-lpe::Log("AS2");
 	s.sequenceName = name;
-lpe::Log("AS3");
 	for (int i = 0; i<n;i++) {
 		Frame f;
 		f.sheet = frames[i][0];
@@ -38,36 +35,24 @@ lpe::Log("AS3");
 		f.tileY = frames[i][2];
 		s.frames.push_back(f);
 	}
-lpe::Log("AS4");
 	if (fps) s.intervalMilliseconds = 1000/fps;
 	else s.intervalMilliseconds = 0;
-lpe::Log("AS5");
 	m_Sequences.push_back(s);
-lpe::Log("AS6");
-	if (m_ActiveSequence == 0) ActivateSequence(name);
+	if (m_ActiveSequenceItem == -1) ActivateSequence(name);
 	return true;
 }
 
 bool Spritesheet::ActivateSequence(const char* seq) {
-lpe::Log("Ac1");
-	if (m_ActiveSequence != 0) {
-	lpe::Log("Ac11");
-	std::string a = m_ActiveSequence->sequenceName;
-	lpe::Log("Ac12");
-		if (a.compare(seq))
+	if (m_ActiveSequenceItem != -1) {
+		if (m_Sequences[m_ActiveSequenceItem].sequenceName.compare(seq) == 0) {
 			return true;
+		}
 	}
-lpe::Log("Ac2");
 	for (unsigned int i = 0; i < m_Sequences.size(); i++) {
 		if (m_Sequences[i].sequenceName.compare(seq) == 0) {
-lpe::Log("Ac3");
-			m_ActiveSequence = &m_Sequences[i];
-lpe::Log("Ac4");
-
+			m_ActiveSequenceItem = i;
 			ActivateFrame(m_Sequences[i].frames[0]);
-lpe::Log("Ac5");
 			m_CurrentSequenceIndex = 0;
-lpe::Log("Ac6");
 			return true;
 		}
 	}
@@ -75,21 +60,21 @@ lpe::Log("Ac6");
 }
 
 void Spritesheet::tick() {
-	if (m_ActiveSequence->frames.size() <= 1 || m_ActiveSequence->intervalMilliseconds == 0) // There's animation!
+	if (m_Sequences[m_ActiveSequenceItem].frames.size() <= 1 || m_Sequences[m_ActiveSequenceItem].intervalMilliseconds == 0) // There's animation!
 		return;
-	if (m_clk.getElapsedTime().asMilliseconds() >= m_ActiveSequence->intervalMilliseconds) // Let's change frame!
-		if (m_CurrentSequenceIndex < m_ActiveSequence->frames.size()) { // Within range
-			ActivateFrame(m_ActiveSequence->frames[m_CurrentSequenceIndex]);
+	if (m_clk.getElapsedTime().asMilliseconds() >= m_Sequences[m_ActiveSequenceItem].intervalMilliseconds) // Let's change frame!
+		if (m_CurrentSequenceIndex < m_Sequences[m_ActiveSequenceItem].frames.size()) { // Within range
+			ActivateFrame(m_Sequences[m_ActiveSequenceItem].frames[m_CurrentSequenceIndex]);
 			m_CurrentSequenceIndex++;
 		}
 		else { //Reset
 			m_CurrentSequenceIndex = 0;
-			ActivateFrame(m_ActiveSequence->frames[m_CurrentSequenceIndex]);
+			ActivateFrame(m_Sequences[m_ActiveSequenceItem-1].frames[m_CurrentSequenceIndex]);
 		}
 }
 
 void Spritesheet::draw(sf::RenderTarget& target, sf::RenderStates states) const {
-	if (m_ActiveSequence == 0)
+	if (m_ActiveSequenceItem == -1)
 		return;
 	target.draw(m_sprite, states);
 }

@@ -14,6 +14,7 @@ public:
 	Spritesheet* GetSpritesheet() {return &m_Spritesheet;}
 protected:
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+	sf::Vector2f CorrectMovement(sf::Vector2f vec);
 private:
 	Spritesheet m_Spritesheet;
 	bool m_Loaded = false;

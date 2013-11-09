@@ -32,31 +32,55 @@ void Player::Load() {
 void Player::tick() {
 	sf::Vector2f movement;
 	if (Game::Get()->GetInputManager()->IsKeyPressed(Key::D)) {
-		movement.x+=5;
+		movement.x+=200;
 	}
 	if (Game::Get()->GetInputManager()->IsKeyPressed(Key::A)) {
-		movement.x-=5;
+		movement.x-=200;
 	}
 	if (Game::Get()->GetInputManager()->IsKeyPressed(Key::S)) {
-		movement.y+=5;
+		movement.y+=200;
 	}
 	if (Game::Get()->GetInputManager()->IsKeyPressed(Key::W)) {
-		movement.y-=5;
+		movement.y-=200;
 	}
 
 	// Sprite Update
-	if (movement.x > 2) {
-		GetSpritesheet()->ActivateSequence("Idle Right");
-		lpe::Log("Right");
+	if (movement.x != 0 && movement.y != 0) {
+		IsMoving(true);
+		if (movement.x > 2) {
+			GetSpritesheet()->ActivateSequence("Idle Right");
+			SetDirection(Direction::Right);
+		}
+		else if (movement.x < -2) {
+			GetSpritesheet()->ActivateSequence("Idle Left");
+			SetDirection(Direction::Left);
+		}
 	}
-	else if (movement.x < -2) {
-		GetSpritesheet()->ActivateSequence("Idle Left");
-		lpe::Log("Left");
+	else {
+		if (!IsMoving()) {
+			switch (GetDirection()) {
+			case Direction::Up:
+				break;
+			case Direction::UpRight:
+				break;
+			case Direction::Right:
+				GetSpritesheet()->ActivateSequence("Idle Right");
+				break;
+			case Direction::DownRight:
+				break;
+			case Direction::Down:
+				break;
+			case Direction::DownLeft:
+				break;
+			case Direction::Left:
+				GetSpritesheet()->ActivateSequence("Idle Left");
+				break;
+			case Direction::UpLeft:
+				break;
+			}
+		}
 	}
 
-	// Correcting speed with framerate
-	movement.x *= Game::Get()->GetFrameTime()->asMilliseconds();
-	movement.y *= Game::Get()->GetFrameTime()->asMilliseconds();
-	move(movement);
+	move(CorrectMovement(movement));
 
 }
