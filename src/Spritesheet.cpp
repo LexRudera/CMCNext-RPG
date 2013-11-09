@@ -62,15 +62,18 @@ bool Spritesheet::ActivateSequence(const char* seq) {
 void Spritesheet::tick() {
 	if (m_Sequences[m_ActiveSequenceItem].frames.size() <= 1 || m_Sequences[m_ActiveSequenceItem].intervalMilliseconds == 0) // There's animation!
 		return;
-	if (m_clk.getElapsedTime().asMilliseconds() >= m_Sequences[m_ActiveSequenceItem].intervalMilliseconds) // Let's change frame!
+	if (m_clk.getElapsedTime().asMilliseconds() >= m_Sequences[m_ActiveSequenceItem].intervalMilliseconds) { // Let's change frame!
+		lpe::Log(lpe::to_string(m_CurrentSequenceIndex));
 		if (m_CurrentSequenceIndex < m_Sequences[m_ActiveSequenceItem].frames.size()) { // Within range
 			ActivateFrame(m_Sequences[m_ActiveSequenceItem].frames[m_CurrentSequenceIndex]);
 			m_CurrentSequenceIndex++;
 		}
 		else { //Reset
 			m_CurrentSequenceIndex = 0;
-			ActivateFrame(m_Sequences[m_ActiveSequenceItem-1].frames[m_CurrentSequenceIndex]);
+			ActivateFrame(m_Sequences[m_ActiveSequenceItem].frames[m_CurrentSequenceIndex]);
+			m_CurrentSequenceIndex++;
 		}
+	}
 }
 
 void Spritesheet::draw(sf::RenderTarget& target, sf::RenderStates states) const {
@@ -83,6 +86,10 @@ bool Spritesheet::ActivateFrame(Frame& frm) {
 	// Set the sheet
 	m_sprite.setTexture(*m_Sheets[frm.sheet].image);
 	// Set the renderet rectangle
+	//lpe::Log(lpe::to_string(frm.tileX*m_Sheets[frm.sheet].TileWidth));
+	//lpe::Log(lpe::to_string(frm.tileY*m_Sheets[frm.sheet].TileHeight));
+	//lpe::Log(lpe::to_string(m_Sheets[frm.sheet].TileWidth));
+	//lpe::Log(lpe::to_string(m_Sheets[frm.sheet].TileHeight));
 	sf::IntRect rect(frm.tileX*m_Sheets[frm.sheet].TileWidth, frm.tileY*m_Sheets[frm.sheet].TileHeight, m_Sheets[frm.sheet].TileWidth, m_Sheets[frm.sheet].TileHeight);
 	m_sprite.setTextureRect(rect);
 	m_clk.restart();

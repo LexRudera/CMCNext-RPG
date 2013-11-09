@@ -24,3 +24,7 @@ sf::Vector2f Entity::CorrectMovement(sf::Vector2f vec) {
 	vec.y *= Game::Get()->GetFrameTime()->asSeconds();
 	return vec;
 }
+
+void Entity::tick() {
+	m_Spritesheet.tick();
+}

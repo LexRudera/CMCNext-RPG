@@ -15,6 +15,7 @@ public:
 protected:
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 	sf::Vector2f CorrectMovement(sf::Vector2f vec);
+	virtual void tick();
 private:
 	Spritesheet m_Spritesheet;
 	bool m_Loaded = false;
