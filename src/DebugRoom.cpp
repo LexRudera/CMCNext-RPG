@@ -1,6 +1,7 @@
 #include "DebugRoom.hpp"
 #include "Game.hpp"
 #include "Player.hpp"
+#include "Characters\TruffleMint.hpp"
 
 DebugRoom::DebugRoom() {
 	//ctor
@@ -18,4 +19,6 @@ void DebugRoom::Load() {
 	ApplyBackground(bg);
 
     AddEntity(new Player())->Load();
+
+    AddEntity(new TruffleMint())->Load();
 }

@@ -7,17 +7,6 @@
 class Spritesheet : public sf::Drawable
 {
 public:
-	// De/Constructors
-	Spritesheet();
-	virtual ~Spritesheet();
-
-	bool AddSheet(const sf::Texture* tex, int tilesX = 1, int tilesY = 1, int tileWidth = 0, int tileHeight = 0);
-	bool AddSequence(const char* name, unsigned int frames[][3], int n, int fps);
-	bool ActivateSequence(const char* seq);
-	void tick();
-protected:
-	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
-private:
 	struct Sheet {
 		const sf::Texture* image;
 		unsigned int TileWidth;
@@ -26,9 +15,12 @@ private:
 		unsigned int TilesY;
 	};
 	struct Frame {
+	Frame(int a_sheet, int a_tilex, int a_tiley, int a_durmul = 1) : sheet(a_sheet), tileX(a_tilex), tileY(a_tiley), durationMultiplier(a_durmul) {}
+
 		int sheet;
 		int tileX;
 		int tileY;
+		float durationMultiplier;
 	};
 	struct SpriteSequence {
 		std::string sequenceName;
@@ -36,9 +28,22 @@ private:
 		unsigned int intervalMilliseconds;
 	};
 
+	// De/Constructors
+	Spritesheet();
+	virtual ~Spritesheet();
+
+	bool AddSheet(const sf::Texture* tex, int tilesX = 1, int tilesY = 1, int tileWidth = 0, int tileHeight = 0);
+	bool AddSequence(const char* name, unsigned int frames[][3], int n, int fps);
+	bool AddSequence(const char* name, std::vector<Frame>& frames, int fps);
+	bool ActivateSequence(const char* seq);
+	void tick();
+protected:
+	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+
+private:
 	std::vector<Sheet> m_Sheets;
 	std::vector<SpriteSequence> m_Sequences;
-	int m_ActiveSequenceItem = -1;
+	int m_ActiveSequenceIndex = -1;
 	sf::Sprite m_sprite;
 	unsigned int m_CurrentSequenceIndex;
 	sf::Time m_LastFrameChange;
