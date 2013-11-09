@@ -61,6 +61,7 @@
 		<Unit filename="include/AreaCollider.hpp" />
 		<Unit filename="include/Battle.hpp" />
 		<Unit filename="include/Character.hpp" />
+		<Unit filename="include/Characters/TruffleMint.hpp" />
 		<Unit filename="include/DebugRoom.hpp" />
 		<Unit filename="include/Engine/Background.hpp" />
 		<Unit filename="include/Engine/Core.hpp" />
@@ -89,10 +90,12 @@
 		<Unit filename="include/Player.hpp" />
 		<Unit filename="include/Spritesheet.hpp" />
 		<Unit filename="include/StaticEnt.hpp" />
+		<Unit filename="include/TruffleMint.hpp" />
 		<Unit filename="src/Area.cpp" />
 		<Unit filename="src/AreaCollider.cpp" />
 		<Unit filename="src/Battle.cpp" />
 		<Unit filename="src/Character.cpp" />
+		<Unit filename="src/Characters/TruffleMint.cpp" />
 		<Unit filename="src/DebugRoom.cpp" />
 		<Unit filename="src/Engine/Background.cpp" />
 		<Unit filename="src/Engine/Core.cpp" />
