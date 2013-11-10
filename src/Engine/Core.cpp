@@ -30,7 +30,7 @@ int Core::Run(Scene* scn) {
 	//Log("Initializing");
 	m_frameTime = m_clk.restart();
 	//m_window = new sf::RenderWindow(sf::VideoMode(800,600),"Some Game",sf::Style::Fullscreen/*sf::Style::Titlebar*/);
-	m_window = new sf::RenderWindow(sf::VideoMode(800,600),"Some Game", sf::Style::Titlebar);
+	m_window = new sf::RenderWindow(sf::VideoMode(800,600),"CMC Next", sf::Style::Titlebar);
 	m_window->setFramerateLimit(60);
 
 	ChangeScene(scn);

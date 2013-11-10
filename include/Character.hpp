@@ -19,7 +19,7 @@ protected:
 	};
 
 public:
-	Character();
+	Character(const sf::Vector2f& pos);
 	virtual ~Character();
 	// Accessors
 	bool IsAutonomous() {return m_Autonomous;}

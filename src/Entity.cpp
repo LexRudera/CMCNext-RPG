@@ -2,8 +2,9 @@
 #include "Game.hpp"
 #include "Utilities.hpp"
 
-Entity::Entity()
+Entity::Entity(const sf::Vector2f& pos)
 {
+	setPosition(pos);
 	//ctor
 }
 

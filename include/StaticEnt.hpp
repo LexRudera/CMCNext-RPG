@@ -6,7 +6,7 @@
 class StaticEnt : public Entity
 {
 	public:
-		StaticEnt();
+		StaticEnt(const sf::Vector2f& pos);
 		virtual ~StaticEnt();
 	protected:
 	private:

@@ -58,9 +58,9 @@ bool Spritesheet::ActivateSequence(const char* seq) {
 	}
 	for (unsigned int i = 0; i < m_Sequences.size(); i++) {
 		if (m_Sequences[i].sequenceName.compare(seq) == 0) {
-			m_ActiveSequenceIndex = i;
-			ActivateFrame(m_Sequences[i].frames[0]);
 			m_CurrentSequenceIndex = 0;
+			m_ActiveSequenceIndex = i;
+			ActivateFrame(m_Sequences[i].frames[m_CurrentSequenceIndex]);
 			return true;
 		}
 	}
@@ -70,17 +70,17 @@ bool Spritesheet::ActivateSequence(const char* seq) {
 void Spritesheet::tick() {
 	if (m_Sequences[m_ActiveSequenceIndex].frames.size() <= 1 || m_Sequences[m_ActiveSequenceIndex].intervalMilliseconds == 0) // There's animation!
 		return;
-	if (m_clk.getElapsedTime().asMilliseconds() >= m_Sequences[m_ActiveSequenceIndex].intervalMilliseconds * m_Sequences[m_ActiveSequenceIndex].frames[m_CurrentSequenceIndex].durationMultiplier) { // Let's change frame!
-		lpe::Log(lpe::to_string(m_CurrentSequenceIndex));
+	//lpe::Log( lpe::to_string(m_CurrentSequenceIndex+1) + "; " + lpe::to_string(m_clk.getElapsedTime().asMilliseconds()) + " >= " + lpe::to_string(m_Sequences[m_ActiveSequenceIndex].intervalMilliseconds) + " * " + lpe::to_string(m_Sequences[m_ActiveSequenceIndex].frames[m_CurrentSequenceIndex].durationMultiplier)    + " (" + lpe::to_string(m_Sequences[m_ActiveSequenceIndex].intervalMilliseconds * m_Sequences[m_ActiveSequenceIndex].frames[m_CurrentSequenceIndex].durationMultiplier) + ")");
+	if (m_clk.getElapsedTime().asMilliseconds() >= m_Sequences[m_ActiveSequenceIndex].intervalMilliseconds * m_Sequences[m_ActiveSequenceIndex].frames[m_CurrentSequenceIndex-1].durationMultiplier) { // Let's change frame!
+		//lpe::Log(lpe::to_string(m_CurrentSequenceIndex) + ", " + lpe::to_string(m_Sequences[m_ActiveSequenceIndex].frames[m_CurrentSequenceIndex].durationMultiplier));
 		if (m_CurrentSequenceIndex < m_Sequences[m_ActiveSequenceIndex].frames.size()) { // Within range
 			ActivateFrame(m_Sequences[m_ActiveSequenceIndex].frames[m_CurrentSequenceIndex]);
-			m_CurrentSequenceIndex++;
 		}
 		else { //Reset
 			m_CurrentSequenceIndex = 0;
 			ActivateFrame(m_Sequences[m_ActiveSequenceIndex].frames[m_CurrentSequenceIndex]);
-			m_CurrentSequenceIndex++;
 		}
+		m_CurrentSequenceIndex++;
 	}
 }
 
@@ -92,6 +92,7 @@ void Spritesheet::draw(sf::RenderTarget& target, sf::RenderStates states) const 
 
 bool Spritesheet::ActivateFrame(Frame& frm) {
 	// Set the sheet
+	lpe::Log(lpe::to_string(m_CurrentSequenceIndex+1) + ", " + lpe::to_string(frm.durationMultiplier));
 	m_sprite.setTexture(*m_Sheets[frm.sheet].image);
 	// Set the renderet rectangle
 	//lpe::Log(lpe::to_string(frm.tileX*m_Sheets[frm.sheet].TileWidth));

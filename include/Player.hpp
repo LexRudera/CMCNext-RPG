@@ -7,7 +7,7 @@
 class Player : public Character
 {
 public:
-	Player();
+	Player(const sf::Vector2f& pos);
 	virtual ~Player();
 
 	void Load();

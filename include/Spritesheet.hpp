@@ -9,13 +9,13 @@ class Spritesheet : public sf::Drawable
 public:
 	struct Sheet {
 		const sf::Texture* image;
-		unsigned int TileWidth;
-		unsigned int TileHeight;
-		unsigned int TilesX;
-		unsigned int TilesY;
+		int TileWidth;
+		int TileHeight;
+		int TilesX;
+		int TilesY;
 	};
 	struct Frame {
-	Frame(int a_sheet, int a_tilex, int a_tiley, int a_durmul = 1) : sheet(a_sheet), tileX(a_tilex), tileY(a_tiley), durationMultiplier(a_durmul) {}
+	Frame(int a_sheet, int a_tilex, int a_tiley, float a_durmul = 1) : sheet(a_sheet), tileX(a_tilex), tileY(a_tiley), durationMultiplier(a_durmul) {}
 
 		int sheet;
 		int tileX;
@@ -25,7 +25,7 @@ public:
 	struct SpriteSequence {
 		std::string sequenceName;
 		std::vector<Frame> frames;
-		unsigned int intervalMilliseconds;
+		int intervalMilliseconds;
 	};
 
 	// De/Constructors
@@ -45,7 +45,7 @@ private:
 	std::vector<SpriteSequence> m_Sequences;
 	int m_ActiveSequenceIndex = -1;
 	sf::Sprite m_sprite;
-	unsigned int m_CurrentSequenceIndex;
+	int m_CurrentSequenceIndex;
 	sf::Time m_LastFrameChange;
 	sf::Clock m_clk;
 

@@ -2,9 +2,8 @@
 #include "Game.hpp"
 #include "Utilities.hpp"
 
-TruffleMint::TruffleMint()
+TruffleMint::TruffleMint(const sf::Vector2f& pos) : Character(pos)
 {
-	setPosition(300,300);
 	//ctor
 }
 
@@ -19,15 +18,10 @@ void TruffleMint::Load() {
 	Game::Get()->GetResourceManager()->LoadTexture("TruffleMint Idle Battle", "TruffleMint_idle_battle.png");
 	lpe::Log("Texture Loaded");
 
-	GetSpritesheet()->AddSheet(Game::Get()->GetResourceManager()->GetTexture("TruffleMint Idle Battle"),4,4,128,128);
+	GetSpritesheet()->AddSheet(Game::Get()->GetResourceManager()->GetTexture("TruffleMint Idle Battle"),4,4);
 	lpe::Log("Texture Sheet Added");
 
 	std::vector<Spritesheet::Frame> idlebattle;
-
-
-
-
-
 	idlebattle.push_back(Spritesheet::Frame(0,0,0));// Section 1
 	idlebattle.push_back(Spritesheet::Frame(0,1,0));
 	idlebattle.push_back(Spritesheet::Frame(0,2,0));
@@ -62,15 +56,13 @@ void TruffleMint::Load() {
 	idlebattle.push_back(Spritesheet::Frame(0,1,2, 0.5));
 	idlebattle.push_back(Spritesheet::Frame(0,2,2, 3));
 	idlebattle.push_back(Spritesheet::Frame(0,3,2, 0.5));
-	idlebattle.push_back(Spritesheet::Frame(0,1,3, 0.5));
+	idlebattle.push_back(Spritesheet::Frame(0,0,3, 0.5));
 	idlebattle.push_back(Spritesheet::Frame(0,3,2, 0.5));
 	idlebattle.push_back(Spritesheet::Frame(0,2,2, 3));
 	idlebattle.push_back(Spritesheet::Frame(0,1,2, 0.5));
 	idlebattle.push_back(Spritesheet::Frame(0,1,3, 0.5));
 	idlebattle.push_back(Spritesheet::Frame(0,3,1, 0.5));
 	idlebattle.push_back(Spritesheet::Frame(0,0,0));
-
-
 	GetSpritesheet()->AddSequence("Idle Left",idlebattle, 6);
 	lpe::Log("Sequence Added");
 

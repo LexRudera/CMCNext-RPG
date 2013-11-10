@@ -3,7 +3,7 @@
 #include "InputManager.hpp"
 #include "Utilities.hpp"
 
-Player::Player()
+Player::Player(const sf::Vector2f& pos) : Character(pos)
 {
 	//ctor
 }

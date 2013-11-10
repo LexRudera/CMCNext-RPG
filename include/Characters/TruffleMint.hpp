@@ -7,7 +7,7 @@
 class TruffleMint : public Character
 {
 public:
-	TruffleMint();
+	TruffleMint(const sf::Vector2f& pos);
 	virtual ~TruffleMint();
 
 	void Load();

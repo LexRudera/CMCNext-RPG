@@ -8,7 +8,7 @@
 class Entity : public lpe::Object, public AreaCollider
 {
 public:
-	Entity();
+	Entity(const sf::Vector2f& pos);
 	virtual ~Entity();
 	virtual void Load() = 0;
 	Spritesheet* GetSpritesheet() {return &m_Spritesheet;}

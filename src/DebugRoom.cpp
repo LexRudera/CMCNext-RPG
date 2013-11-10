@@ -18,7 +18,7 @@ void DebugRoom::Load() {
 	bg->Add(Game::Get()->GetResourceManager()->GetTexture("Debug Background"));
 	ApplyBackground(bg);
 
-    AddEntity(new Player())->Load();
+    AddEntity(new Player(sf::Vector2f()))->Load();
 
-    AddEntity(new TruffleMint())->Load();
+    AddEntity(new TruffleMint(sf::Vector2f(300, 300)))->Load();
 }

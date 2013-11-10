@@ -6,7 +6,7 @@
 class Item : public Entity
 {
 public:
-	Item();
+	Item(const sf::Vector2f& pos);
 	virtual ~Item();
 protected:
 private:

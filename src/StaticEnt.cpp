@@ -1,6 +1,6 @@
 #include "StaticEnt.hpp"
 
-StaticEnt::StaticEnt()
+StaticEnt::StaticEnt(const sf::Vector2f& pos) : Entity(pos)
 {
 	//ctor
 }
