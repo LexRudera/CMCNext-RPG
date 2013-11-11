@@ -92,8 +92,9 @@ void Spritesheet::draw(sf::RenderTarget& target, sf::RenderStates states) const 
 
 bool Spritesheet::ActivateFrame(Frame& frm) {
 	// Set the sheet
-	lpe::Log(lpe::to_string(m_CurrentSequenceIndex+1) + ", " + lpe::to_string(frm.durationMultiplier));
+	//lpe::Log(lpe::to_string(m_CurrentSequenceIndex+1) + ", " + lpe::to_string(frm.durationMultiplier));
 	m_sprite.setTexture(*m_Sheets[frm.sheet].image);
+	m_sprite.setPosition(-(m_Sheets[frm.sheet].TileWidth/2), -(m_Sheets[frm.sheet].TileHeight/2));
 	// Set the renderet rectangle
 	//lpe::Log(lpe::to_string(frm.tileX*m_Sheets[frm.sheet].TileWidth));
 	//lpe::Log(lpe::to_string(frm.tileY*m_Sheets[frm.sheet].TileHeight));

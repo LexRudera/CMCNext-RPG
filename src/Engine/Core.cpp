@@ -6,9 +6,11 @@
 namespace lpe {
 //sf::Time Core::sm_frameTime;
 //Core* Core::sm_Instance;
+Core* Core::m_Instance;
 
 Core::Core() {
-	//Core::m_Instance = this;
+	Core::m_Instance = this;
+
 	m_ResManager = new ResourceManager();
 	m_InputMan = new InputManager(this);
 	GetResourceManager()->LoadFont("Gentium", "Gentium-R.ttf",Global);
@@ -32,6 +34,7 @@ int Core::Run(Scene* scn) {
 	//m_window = new sf::RenderWindow(sf::VideoMode(800,600),"Some Game",sf::Style::Fullscreen/*sf::Style::Titlebar*/);
 	m_window = new sf::RenderWindow(sf::VideoMode(800,600),"CMC Next", sf::Style::Titlebar);
 	m_window->setFramerateLimit(60);
+	m_view = m_window->getDefaultView();
 
 	ChangeScene(scn);
 
@@ -81,10 +84,12 @@ int Core::Run(Scene* scn) {
 		// Render
 		//--------
 		//Log("Render");
+		m_window->setView(m_view);
 		m_window->clear( );
 		GetActiveScene()->Render(*m_window);
 		//Log("Rendering FPS");
 		if (GetConfiguration()->ShowFps() && m_window->isOpen()) { // Why it matters if the window is open or not, I don't know.
+			FpsTxt.setPosition(m_view.getCenter()-sf::Vector2f(m_view.getSize().x/2, m_view.getSize().y/2));
 			FpsTxt.setString(to_string(1/m_frameTime.asSeconds()));
 			m_window->draw(FpsTxt);
 		}

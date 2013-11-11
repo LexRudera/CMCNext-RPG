@@ -17,7 +17,7 @@ void Player::Load() {
 	lpe::Log("Player Loading...");
 	Game::Get()->GetResourceManager()->LoadTexture("Mortem Debug", "mortem-d.png");
 	lpe::Log("Texture Loaded");
-	GetSpritesheet()->AddSheet(Game::Get()->GetResourceManager()->GetTexture("Mortem Debug"),7,5,100,100);
+	GetSpritesheet()->AddSheet(Game::Get()->GetResourceManager()->GetTexture("Mortem Debug"),7,5);
 	lpe::Log("Texture Sheet Added");
 	unsigned int idleleft[][3] = 	{{0,0,0}};
 	unsigned int idleright[][3] = 	{{0,1,0}};
@@ -39,19 +39,19 @@ void Player::Load() {
 
 void Player::tick() {
 	Entity::tick();
-
+	int speed = 600;
 	sf::Vector2f movement;
 	if (Game::Get()->GetInputManager()->IsKeyPressed(Key::D)) {
-		movement.x+=200;
+		movement.x+=speed;
 	}
 	if (Game::Get()->GetInputManager()->IsKeyPressed(Key::A)) {
-		movement.x-=200;
+		movement.x-=speed;
 	}
 	if (Game::Get()->GetInputManager()->IsKeyPressed(Key::S)) {
-		movement.y+=200;
+		movement.y+=speed;
 	}
 	if (Game::Get()->GetInputManager()->IsKeyPressed(Key::W)) {
-		movement.y-=200;
+		movement.y-=speed;
 	}
 
 	// Sprite Update
@@ -123,5 +123,20 @@ void Player::tick() {
 	}
 
 	move(CorrectMovement(movement));
+
+	//Camera movement
+	sf::Vector2f cent = getPosition();
+
+	if (getPosition().x - Game::Get()->GetView()->getSize().x/2 < 0)
+		cent.x = Game::Get()->GetView()->getSize().x/2;
+	else if (getPosition().x + Game::Get()->GetView()->getSize().x/2 > Game::Get()->GetActiveScene()->GetBackground()->GetSize().x)
+		cent.x = Game::Get()->GetActiveScene()->GetBackground()->GetSize().x - Game::Get()->GetView()->getSize().x/2;
+
+	if (getPosition().y - Game::Get()->GetView()->getSize().y/2 < 0)
+		cent.y = Game::Get()->GetView()->getSize().y/2;
+	else if (getPosition().y + Game::Get()->GetView()->getSize().y/2 > Game::Get()->GetActiveScene()->GetBackground()->GetSize().y)
+		cent.y = Game::Get()->GetActiveScene()->GetBackground()->GetSize().y - Game::Get()->GetView()->getSize().y/2;
+	Game::Get()->GetView()->setCenter(cent);
+	//lpe::Log(lpe::to_string(cent.x) + " " + lpe::to_string(cent.y));
 
 }

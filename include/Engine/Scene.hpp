@@ -21,6 +21,9 @@ public:
 	void ApplyBackground(Background* bg) {
 		m_Background = bg;
 	}
+
+	float GetWidth();
+	float GetHeight();
 protected:
 	virtual void Tick();
 

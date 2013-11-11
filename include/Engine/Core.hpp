@@ -13,6 +13,9 @@ class Core {
 public:
 	Core(Settings* conf);
 	virtual ~Core();
+
+	static Core* Get() {return m_Instance;}
+
 	int Run(Scene* scn);
 	sf::RenderWindow* GetWindow() const {
 		return m_window;
@@ -26,6 +29,7 @@ public:
 	Settings* GetConfiguration() {return m_config;}
 	ResourceManager* GetResourceManager() {return m_ResManager;}
 	InputManager* GetInputManager() {return m_InputMan;}
+	sf::View* GetView() {return &m_view;}
 
 	void Quit() {
 		GetWindow()->close();
@@ -34,7 +38,10 @@ protected:
 private:
 	Core();
 
+	static Core* m_Instance;
+
 	sf::Clock m_clk;
+	sf::View m_view;
 	Settings* m_config = 0;
 	sf::RenderWindow* m_window = 0;
 	Scene* m_activeScene = 0;

@@ -22,10 +22,12 @@ public:
 		return m_BgTextures.size();
 	}
 	sf::Sprite* GetLayer(int i);
+	sf::Vector2f GetSize() {return m_size;}
 protected:
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 private:
 	std::vector<sf::Sprite*> m_BgTextures;
+	sf::Vector2f m_size;
 };
 }
 

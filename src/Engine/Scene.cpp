@@ -1,4 +1,5 @@
 #include "Scene.hpp"
+#include "Core.hpp"
 #include "Utilities.hpp"
 
 namespace lpe{
@@ -36,5 +37,14 @@ void Scene::Render(sf::RenderTarget& target) {
 		//Log("Render loop: " + *((Label)m_Objects[i]).GetString());
 		target.draw(*m_Objects[i],sf::RenderStates::Default);
 	}
+}
+
+float Scene::GetWidth() {
+	if (!m_Background)
+		return Core::Get()->GetWindow()->getSize().x;
+}
+float Scene::GetHeight() {
+	if (!m_Background)
+		return Core::Get()->GetWindow()->getSize().y;
 }
 }

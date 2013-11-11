@@ -4,6 +4,7 @@
 
 namespace lpe {
 Background::Background() {
+	m_size = sf::Vector2f(Core::Get()->GetWindow()->getSize().x, Core::Get()->GetWindow()->getSize().y);
 	//ctor
 }
 
@@ -31,6 +32,11 @@ void Background::Add(const sf::Texture* tex, const sf::Vector2f& pos, const sf::
 	}
 	t->setRotation(rot);
 	m_BgTextures.push_back(t);
+	// Size update
+	if (m_size.x < pos.x+tex->getSize().x)
+		m_size.x = pos.x+tex->getSize().x;
+	if (m_size.y < pos.y+tex->getSize().y)
+		m_size.y = pos.y+tex->getSize().y;
 }
 void Background::Rearrange(unsigned int from, unsigned int to) {
 	std::vector<sf::Sprite*>::iterator it = m_BgTextures.begin();
