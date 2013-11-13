@@ -1,169 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
-	<ActiveTarget name="Debug" />
-	<File name="src\Engine\Scene.cpp" open="1" top="0" tabpos="23" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="40" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="include\Engine\Object.hpp" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="968" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="include\Engine\ResourceManager.hpp" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="225" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\Engine\Utilities.cpp" open="1" top="0" tabpos="27" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="285" topLine="11" />
-		</Cursor>
-	</File>
-	<File name="include\Engine\Scene.hpp" open="1" top="0" tabpos="24" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="488" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\Entity.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="265" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="include\Spritesheet.hpp" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="285" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\Game.cpp" open="0" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="269" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="include\Engine\Utilities.hpp" open="0" top="0" tabpos="17" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="559" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="include\StaticEnt.hpp" open="1" top="0" tabpos="21" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="160" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\Inventory.cpp" open="0" top="0" tabpos="21" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="53" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="include\Entity.hpp" open="1" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="221" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\Item.cpp" open="1" top="0" tabpos="17" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="71" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="include\Game.hpp" open="0" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="221" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\MainMenu.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="645" topLine="8" />
-		</Cursor>
-	</File>
-	<File name="include\Inventory.hpp" open="0" top="0" tabpos="20" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="0" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="resources.rc" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\OptionsMenu.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="958" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="include\Item.hpp" open="1" top="0" tabpos="18" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="128" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\Area.cpp" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="166" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\Party.cpp" open="0" top="0" tabpos="23" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="87" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="include\MainMenu.hpp" open="0" top="0" tabpos="15" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="392" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\Player.cpp" open="1" top="1" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3021" topLine="66" />
-		</Cursor>
-	</File>
+	<ActiveTarget name="Release" />
 	<File name="include\OptionsMenu.hpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="120" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\Battle.cpp" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="60" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="include\Battle.hpp" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="196" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\Spritesheet.cpp" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3766" topLine="68" />
-		</Cursor>
-	</File>
-	<File name="include\Party.hpp" open="0" top="0" tabpos="22" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="105" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\Character.cpp" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="87" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="include\Character.hpp" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="265" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\StaticEnt.cpp" open="1" top="0" tabpos="20" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="102" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="include\Player.hpp" open="1" top="0" tabpos="19" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="148" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\Characters\SugarBolt.cpp" open="1" top="0" tabpos="15" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="100" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="include\Characters\SugarBolt.hpp" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -171,94 +11,9 @@
 			<Cursor1 position="158" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\main.cpp" open="0" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="include\Party.hpp" open="0" top="0" tabpos="22" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="209" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="include\Area.hpp" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="183" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\Characters\TruffleMint.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="283" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="include\Characters\TruffleMint.hpp" open="1" top="0" tabpos="16" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="164" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="include\AreaCollider.hpp" open="0" top="0" tabpos="34" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="151" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\DebugRoom.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="490" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="include\DebugRoom.hpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="168" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\Engine\Background.cpp" open="1" top="0" tabpos="30" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="144" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="include\Engine\Background.hpp" open="1" top="0" tabpos="31" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="718" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\Engine\Core.cpp" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2456" topLine="83" />
-		</Cursor>
-	</File>
-	<File name="include\Engine\Core.hpp" open="1" top="0" tabpos="22" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="338" topLine="12" />
-		</Cursor>
-	</File>
-	<File name="src\Engine\InputManager.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="158" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="include\Engine\InputManager.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="91" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\Engine\MenuControls\Button.cpp" open="1" top="0" tabpos="26" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="746" topLine="13" />
-		</Cursor>
-	</File>
-	<File name="src\Engine\MenuControls\ControlBase.cpp" open="0" top="0" tabpos="45" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="0" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\Engine\MenuControls\Image.cpp" open="1" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="267" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="include\Engine\MenuControls\ControlBase.hpp" open="0" top="0" tabpos="46" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="0" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\Engine\MenuControls\Label.cpp" open="1" top="0" tabpos="29" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="875" topLine="0" />
+			<Cursor1 position="105" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="src\Engine\MenuControls\Selector.cpp" open="1" top="0" tabpos="28" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -266,14 +21,39 @@
 			<Cursor1 position="2254" topLine="56" />
 		</Cursor>
 	</File>
-	<File name="include\Engine\MenuControls\Image.hpp" open="1" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="include\Characters\TruffleMint.hpp" open="1" top="0" tabpos="16" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="227" topLine="0" />
+			<Cursor1 position="164" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include\Player.hpp" open="1" top="0" tabpos="19" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="148" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include\DebugRoom.hpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="168" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include\Spritesheet.hpp" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="285" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="src\Engine\Object.cpp" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="166" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include\Engine\Background.hpp" open="1" top="0" tabpos="31" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="718" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include\StaticEnt.hpp" open="1" top="0" tabpos="21" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="160" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="src\Engine\ResourceManager.cpp" open="1" top="0" tabpos="25" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -286,5 +66,230 @@
 			<Collapse line="86" />
 			<Collapse line="103" />
 		</Folding>
+	</File>
+	<File name="include\Engine\Core.hpp" open="1" top="0" tabpos="22" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="338" topLine="12" />
+		</Cursor>
+	</File>
+	<File name="src\Engine\Scene.cpp" open="1" top="0" tabpos="23" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="40" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include\Engine\InputManager.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="91" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="resources.rc" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\Engine\Utilities.cpp" open="1" top="0" tabpos="27" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="285" topLine="11" />
+		</Cursor>
+	</File>
+	<File name="src\Area.cpp" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="166" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\Entity.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="265" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include\Area.hpp" open="1" top="0" tabpos="33" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="140" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\Collider.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="77" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\Game.cpp" open="0" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="269" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include\Collider.hpp" open="0" top="0" tabpos="34" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="121" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\Battle.cpp" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="60" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\Inventory.cpp" open="0" top="0" tabpos="21" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="53" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\Character.cpp" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="87" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\Item.cpp" open="1" top="0" tabpos="17" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="71" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include\Engine\MenuControls\ControlBase.hpp" open="0" top="0" tabpos="46" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\Characters\SugarBolt.cpp" open="1" top="0" tabpos="15" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="100" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\MainMenu.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="645" topLine="8" />
+		</Cursor>
+	</File>
+	<File name="src\Characters\TruffleMint.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="283" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\OptionsMenu.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="958" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include\Engine\MenuControls\Image.hpp" open="1" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="227" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\DebugRoom.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="490" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\Party.cpp" open="0" top="0" tabpos="23" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="87" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\Engine\Background.cpp" open="1" top="0" tabpos="30" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="144" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\Player.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2607" topLine="66" />
+		</Cursor>
+	</File>
+	<File name="src\Engine\Core.cpp" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2456" topLine="83" />
+		</Cursor>
+	</File>
+	<File name="src\Spritesheet.cpp" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3766" topLine="68" />
+		</Cursor>
+	</File>
+	<File name="src\Engine\InputManager.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="158" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\StaticEnt.cpp" open="1" top="0" tabpos="20" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="102" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include\Engine\Object.hpp" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="968" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\main.cpp" open="0" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="209" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include\Engine\ResourceManager.hpp" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="225" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\Engine\MenuControls\Button.cpp" open="1" top="0" tabpos="26" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="746" topLine="13" />
+		</Cursor>
+	</File>
+	<File name="include\Engine\Scene.hpp" open="1" top="0" tabpos="24" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="488" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\Engine\MenuControls\ControlBase.cpp" open="0" top="0" tabpos="45" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\Engine\MenuControls\Image.cpp" open="1" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="267" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include\Engine\Utilities.hpp" open="1" top="1" tabpos="32" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="360" topLine="3" />
+		</Cursor>
+	</File>
+	<File name="src\Engine\MenuControls\Label.cpp" open="1" top="0" tabpos="29" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="875" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include\Entity.hpp" open="1" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="158" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include\Game.hpp" open="0" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="221" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include\Inventory.hpp" open="0" top="0" tabpos="20" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include\Item.hpp" open="1" top="0" tabpos="18" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="128" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include\Battle.hpp" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="196" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include\MainMenu.hpp" open="0" top="0" tabpos="15" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="392" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include\Character.hpp" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="265" topLine="0" />
+		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include <sstream>
+#include <SFML\System.hpp>
 
 namespace lpe{
 void Error(const std::string& err);
@@ -20,6 +21,13 @@ inline std::string to_string(const T& t) {
 	ss << t;
 	return ss.str();
 }
+
 std::string IntToString(int i);
+
+template <typename T>
+float DotProduct(const sf::Vector2<T>& a, const sf::Vector2<T>& b) {
+	return a.x*b.x + a.y*b.y;
 }
+}
+
 #endif // GLOBAL_HPP_INCLUDED

@@ -4,7 +4,7 @@
 #include "Scene.hpp"
 #include "Entity.hpp"
 
-class Area : public lpe::Scene, public AreaCollider
+class Area : public lpe::Scene, public Collider
 {
 public:
 	Area();

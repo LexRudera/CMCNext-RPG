@@ -2,10 +2,10 @@
 #define ENTITY_H
 
 #include "Object.hpp"
-#include "AreaCollider.hpp"
+#include "Collider.hpp"
 #include "Spritesheet.hpp"
 
-class Entity : public lpe::Object, public AreaCollider
+class Entity : public lpe::Object, public Collider
 {
 public:
 	Entity(const sf::Vector2f& pos);
