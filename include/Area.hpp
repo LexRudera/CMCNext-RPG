@@ -11,6 +11,7 @@ public:
 	virtual ~Area();
 	Entity* AddEntity(Entity* ent);
 protected:
+	virtual void Tick();
 private:
 };
 

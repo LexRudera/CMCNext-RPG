@@ -26,7 +26,7 @@ public:
 	void ChangeScene(Scene* scn, const Persistence& depth = Level);
 
 	const sf::Time* GetFrameTime() const {return &m_frameTime;}
-	Settings* GetConfiguration() {return m_config;}
+	Settings* GetSettings() {return m_config;}
 	ResourceManager* GetResourceManager() {return m_ResManager;}
 	InputManager* GetInputManager() {return m_InputMan;}
 	sf::View* GetView() {return &m_view;}

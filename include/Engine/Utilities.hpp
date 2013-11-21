@@ -24,10 +24,9 @@ inline std::string to_string(const T& t) {
 
 std::string IntToString(int i);
 
-template <typename T>
-float DotProduct(const sf::Vector2<T>& a, const sf::Vector2<T>& b) {
-	return a.x*b.x + a.y*b.y;
-}
+//template <typename T>
+//float DotProduct(const sf::Vector2<T>& a, const sf::Vector2<T>& b) {
+float DotProduct(const sf::Vector2f& a, const sf::Vector2f& b);
 }
 
 #endif // GLOBAL_HPP_INCLUDED

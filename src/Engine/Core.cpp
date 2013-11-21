@@ -88,7 +88,7 @@ int Core::Run(Scene* scn) {
 		m_window->clear( );
 		GetActiveScene()->Render(*m_window);
 		//Log("Rendering FPS");
-		if (GetConfiguration()->ShowFps() && m_window->isOpen()) { // Why it matters if the window is open or not, I don't know.
+		if (GetSettings()->ShowFps() && m_window->isOpen()) { // Why it matters if the window is open or not, I don't know.
 			FpsTxt.setPosition(m_view.getCenter()-sf::Vector2f(m_view.getSize().x/2, m_view.getSize().y/2));
 			FpsTxt.setString(to_string(1/m_frameTime.asSeconds()));
 			m_window->draw(FpsTxt);
