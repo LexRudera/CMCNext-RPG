@@ -20,10 +20,7 @@ void Entity::draw(sf::RenderTarget& target, sf::RenderStates states) const {
 	target.draw(m_Spritesheet, states);
 
 	if (true) {
-		sf::Vertex vtex[GetPoints().size()];
-		for (int i = 0; i < GetPoints().size(); i++)
-			vtex[i].position = GetPoints()[i];
-		target.draw(vtex, GetPoints().size(), sf::PrimitiveType::LinesStrip, states);
+		target.draw(GetHitbox(), states);
 	}
 }
 

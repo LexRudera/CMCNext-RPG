@@ -9,15 +9,20 @@ class Collider
 public:
 	Collider();
 	virtual ~Collider();
+
 	void Collision(Collider* col);
 	void ClearCollisionTable();
+	void AddHitboxVertex(const sf::Vector2f& point);
+	void ClearHitbox();
+	void CalculateEdges();
 
-	const std::vector<sf::Vector2f>& GetPoints() const {return m_Points;}
+	const sf::VertexArray& GetHitbox() const {return m_Points;}
 	const std::vector<sf::Vector2f>& GetEdges() const {return m_Edges;}
 protected:
 private:
 	bool m_Solid;
-	std::vector<sf::Vector2f> m_Points;
+	//std::vector<sf::Vector2f> m_Points;
+	sf::VertexArray m_Points;
 	std::vector<sf::Vector2f> m_Edges;
 };
 

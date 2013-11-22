@@ -34,6 +34,11 @@ void Player::Load() {
 	GetSpritesheet()->AddSequence("Trot Left",trotleft,16,24);
 	GetSpritesheet()->AddSequence("Trot Right",trotright,16,24);
 	lpe::Log("Sequence Added");
+
+	AddHitboxVertex(sf::Vector2f(-10,0));
+	AddHitboxVertex(sf::Vector2f(10,0));
+	AddHitboxVertex(sf::Vector2f(10,10));
+	AddHitboxVertex(sf::Vector2f(-10,10));
 	lpe::Log("Player Loaded!");
 }
 

@@ -3,6 +3,7 @@
 
 Collider::Collider()
 {
+	m_Points.setPrimitiveType(sf::PrimitiveType::LinesStrip);
 	//ctor
 }
 
@@ -86,4 +87,28 @@ void Collider::Collision(Collider* col) {
 
 void Collider::ClearCollisionTable() {
 	//m_Intersecting.clear();
+}
+
+void Collider::AddHitboxVertex(const sf::Vector2f& point) {
+	//m_Points.push_back(point);
+	m_Points.append(sf::Vertex(point));
+}
+
+void Collider::ClearHitbox() {
+	m_Points.clear();
+}
+
+void Collider::CalculateEdges() {
+	/*sf::Vector2f* p1;
+	sf::Vector2f* p2;
+	m_Edges.clear();
+	for (unsigned int i = 0; i < m_Points.size(); i++) {
+		p1 = &m_Points[i];
+		if (i + 1 >= m_Points.size()) {
+		p2 = &m_Points[0];
+		} else {
+			p2 = &m_Points[i + 1];
+		}
+		m_Edges.push_back(*p2 - *p1);
+	}*/
 }
