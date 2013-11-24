@@ -16,6 +16,12 @@
 				<Compiler>
 					<Add option="-g" />
 				</Compiler>
+				<Linker>
+					<Add library="sfml-audio-d-2" />
+					<Add library="sfml-graphics-d-2" />
+					<Add library="sfml-window-d-2" />
+					<Add library="sfml-system-d-2" />
+				</Linker>
 			</Target>
 			<Target title="Release">
 				<Option output="bin/CMCNext" prefix_auto="1" extension_auto="1" />
@@ -28,6 +34,10 @@
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
+					<Add library="sfml-audio-2" />
+					<Add library="sfml-graphics-2" />
+					<Add library="sfml-window-2" />
+					<Add library="sfml-system-2" />
 				</Linker>
 			</Target>
 		</Build>
@@ -47,10 +57,6 @@
 			<Add directory="./include/Engine" />
 		</Compiler>
 		<Linker>
-			<Add library="sfml-audio-2" />
-			<Add library="sfml-graphics-2" />
-			<Add library="sfml-window-2" />
-			<Add library="sfml-system-2" />
 			<Add directory="./lib" />
 			<Add directory="$(#SFML)/lib" />
 		</Linker>

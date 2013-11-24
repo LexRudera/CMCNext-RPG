@@ -21,6 +21,12 @@ void Entity::draw(sf::RenderTarget& target, sf::RenderStates states) const {
 
 	if (true) {
 		target.draw(GetHitbox(), states);
+		const sf::VertexArray& hbox = GetHitbox();
+		if (hbox.getVertexCount() > 2) {
+			sf::Vertex arr[] = {hbox[hbox.getVertexCount()-1],
+								hbox[0]};
+			target.draw(arr, 2, sf::PrimitiveType::Lines, states);
+		}
 	}
 }
 
