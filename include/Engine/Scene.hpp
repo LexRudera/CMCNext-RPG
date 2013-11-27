@@ -14,7 +14,7 @@ public:
 	virtual ~Scene();
 	virtual void Load() = 0;
 	void DoTick();
-	void Render(sf::RenderTarget& target);
+	void DoRender(sf::RenderTarget& target);
 	Background* GetBackground() {
 		return m_Background;
 	}
@@ -26,6 +26,7 @@ public:
 	float GetHeight();
 protected:
 	virtual void Tick();
+	virtual void Render(sf::RenderTarget& target);
 
 	std::vector<Object*> m_Objects;
 private:

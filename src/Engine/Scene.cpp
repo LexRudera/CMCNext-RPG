@@ -28,15 +28,20 @@ void Scene::Tick() {
 
 }
 
-void Scene::Render(sf::RenderTarget& target) {
+void Scene::DoRender(sf::RenderTarget& target) {
 	if (m_Background != 0) {
-		target.draw(*m_Background,sf::RenderStates::Default);
+		target.draw(*m_Background, sf::RenderStates::Default);
 
 	}
+	Render(target);
 	for (unsigned int i = 0; i < m_Objects.size(); i++) {
 		//Log("Render loop: " + *((Label)m_Objects[i]).GetString());
-		target.draw(*m_Objects[i],sf::RenderStates::Default);
+		target.draw(*m_Objects[i], sf::RenderStates::Default);
 	}
+}
+
+void Scene::Render(sf::RenderTarget& target) {
+
 }
 
 float Scene::GetWidth() {

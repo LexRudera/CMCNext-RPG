@@ -12,6 +12,7 @@ public:
 	Entity* AddEntity(Entity* ent);
 protected:
 	virtual void Tick();
+	virtual void Render(sf::RenderTarget& target);
 private:
 };
 

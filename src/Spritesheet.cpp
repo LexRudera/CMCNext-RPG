@@ -90,11 +90,12 @@ void Spritesheet::draw(sf::RenderTarget& target, sf::RenderStates states) const 
 	target.draw(m_sprite, states);
 }
 
-bool Spritesheet::ActivateFrame(Frame& frm) {
+bool Spritesheet::ActivateFrame(Frame& frm, bool clocking) {
 	// Set the sheet
 	//lpe::Log(lpe::to_string(m_CurrentSequenceIndex+1) + ", " + lpe::to_string(frm.durationMultiplier));
 	m_sprite.setTexture(*m_Sheets[frm.sheet].image);
-	m_sprite.setPosition(-(m_Sheets[frm.sheet].TileWidth/2), -(m_Sheets[frm.sheet].TileHeight/2));
+	//m_sprite.setPosition(-(m_Sheets[frm.sheet].TileWidth/2), -(m_Sheets[frm.sheet].TileHeight/2));
+	m_sprite.setPosition(m_Sheets[frm.sheet].OffsetPos);
 	// Set the renderet rectangle
 	//lpe::Log(lpe::to_string(frm.tileX*m_Sheets[frm.sheet].TileWidth));
 	//lpe::Log(lpe::to_string(frm.tileY*m_Sheets[frm.sheet].TileHeight));
@@ -102,5 +103,19 @@ bool Spritesheet::ActivateFrame(Frame& frm) {
 	//lpe::Log(lpe::to_string(m_Sheets[frm.sheet].TileHeight));
 	sf::IntRect rect(frm.tileX*m_Sheets[frm.sheet].TileWidth, frm.tileY*m_Sheets[frm.sheet].TileHeight, m_Sheets[frm.sheet].TileWidth, m_Sheets[frm.sheet].TileHeight);
 	m_sprite.setTextureRect(rect);
-	m_clk.restart();
+	if (clocking) m_clk.restart();
 }
+
+void Spritesheet::ReloadFrame() {
+	ActivateFrame(m_Sequences[m_ActiveSequenceIndex].frames[m_CurrentSequenceIndex], false);
+}
+
+void Spritesheet::Align(int x, int y,int sheet) {
+	if (sheet != -1)
+		m_Sheets[sheet].OffsetPos = sf::Vector2f(x,y);
+	else
+		for (unsigned int i = 0; i < m_Sheets.size(); i++)
+			m_Sheets[i].OffsetPos = sf::Vector2f(x,y);
+	ReloadFrame();
+}
+

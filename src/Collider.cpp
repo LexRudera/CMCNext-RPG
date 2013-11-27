@@ -1,9 +1,10 @@
 #include "Collider.hpp"
-#include "SFML/OpenGL.hpp"
+#include "Utilities.hpp"
 
-Collider::Collider()
+Collider::Collider() : m_Solid(true)
 {
-	m_Points.setPrimitiveType(sf::PrimitiveType::LinesStrip);
+	m_Points.push_back(sf::VertexArray(sf::PrimitiveType::LinesStrip));
+	m_Edges.push_back(VectorArray());
 	//ctor
 }
 
@@ -89,26 +90,38 @@ void Collider::ClearCollisionTable() {
 	//m_Intersecting.clear();
 }
 
-void Collider::AddHitboxVertex(const sf::Vector2f& point) {
-	//m_Points.push_back(point);
-	m_Points.append(sf::Vertex(point));
+void Collider::AddHitboxVertex(const sf::Vector2f& point, int i) {
+	if (i >= m_Points.size())
+		for (unsigned int j = 0; j < i-m_Points.size()+1; j++) {
+			m_Points.push_back(sf::VertexArray(sf::PrimitiveType::LinesStrip));
+			m_Edges.push_back(VectorArray());
+		}
+	m_Points[i].append(sf::Vertex(point));
 }
 
-void Collider::ClearHitbox() {
-	m_Points.clear();
+void Collider::AddHitboxVertex(float x, float y, int i) {
+	AddHitboxVertex(sf::Vector2f(x,y), i);
+}
+
+void Collider::ClearHitbox(int i) {
+	m_Points[i].clear();
 }
 
 void Collider::CalculateEdges() {
-	/*sf::Vector2f* p1;
-	sf::Vector2f* p2;
-	m_Edges.clear();
+	//sf::Vector2f* p1;
+	//sf::Vector2f* p2;
+	sf::Vertex* p1;
+	sf::Vertex* p2;
 	for (unsigned int i = 0; i < m_Points.size(); i++) {
-		p1 = &m_Points[i];
-		if (i + 1 >= m_Points.size()) {
-		p2 = &m_Points[0];
-		} else {
-			p2 = &m_Points[i + 1];
+		m_Edges[i].clear();
+		for (unsigned int j = 0; j < m_Points[i].getVertexCount(); j++) {
+			p1 = &m_Points[i][j];
+			if (i + 1 >= m_Points[i].getVertexCount()) {
+			p2 = &m_Points[i][0];
+			} else {
+				p2 = &m_Points[i][j + 1];
+			}
+			m_Edges[i].push_back(p2->position - p1->position);
 		}
-		m_Edges.push_back(*p2 - *p1);
-	}*/
+	}
 }

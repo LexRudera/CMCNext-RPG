@@ -13,7 +13,6 @@ public:
 	// Static stuff
 	static Game* Get() {return Game::m_Instance;}
 	// Accessors
-	//lpe::Core* GetCore() {return m_GameCore;}
 	Party* GetParty() {return m_Party;}
 	// Actual functions
 	int StartNewGame();

@@ -12,6 +12,9 @@ public:
 	virtual ~Entity();
 	virtual void Load() = 0;
 	Spritesheet* GetSpritesheet() {return &m_Spritesheet;}
+	sf::Vector2f GetVelocity() {return m_velocity;}
+	void SetVelocity();
+	void ApplyMovement();
 protected:
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 	sf::Vector2f CorrectMovement(sf::Vector2f vec);
@@ -19,6 +22,7 @@ protected:
 private:
 	Spritesheet m_Spritesheet;
 	bool m_Loaded = false;
+	sf::Vector2f m_velocity;
 };
 
 #endif // ENTITY_H

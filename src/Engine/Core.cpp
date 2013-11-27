@@ -33,7 +33,8 @@ int Core::Run(Scene* scn) {
 	m_frameTime = m_clk.restart();
 	//m_window = new sf::RenderWindow(sf::VideoMode(800,600),"Some Game",sf::Style::Fullscreen/*sf::Style::Titlebar*/);
 	m_window = new sf::RenderWindow(sf::VideoMode(800,600),"CMC Next", sf::Style::Titlebar);
-	m_window->setFramerateLimit(60);
+	//m_window->setFramerateLimit(58);
+	m_window->setVerticalSyncEnabled(true);
 	m_view = m_window->getDefaultView();
 
 	ChangeScene(scn);
@@ -86,7 +87,7 @@ int Core::Run(Scene* scn) {
 		//Log("Render");
 		m_window->setView(m_view);
 		m_window->clear( );
-		GetActiveScene()->Render(*m_window);
+		GetActiveScene()->DoRender(*m_window);
 		//Log("Rendering FPS");
 		if (GetSettings()->ShowFps() && m_window->isOpen()) { // Why it matters if the window is open or not, I don't know.
 			FpsTxt.setPosition(m_view.getCenter()-sf::Vector2f(m_view.getSize().x/2, m_view.getSize().y/2));

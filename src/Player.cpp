@@ -35,10 +35,14 @@ void Player::Load() {
 	GetSpritesheet()->AddSequence("Trot Right",trotright,16,24);
 	lpe::Log("Sequence Added");
 
-	AddHitboxVertex(sf::Vector2f(-10,0));
-	AddHitboxVertex(sf::Vector2f(10,0));
-	AddHitboxVertex(sf::Vector2f(10,10));
-	AddHitboxVertex(sf::Vector2f(-10,10));
+	GetSpritesheet()->Align(-20,-(GetSpritesheet()->GetSheet(0)->TileHeight)+18);
+	lpe::Log("Sprites Aligned");
+
+	AddHitboxVertex(sf::Vector2f(0,0));
+	AddHitboxVertex(sf::Vector2f(60,0));
+	AddHitboxVertex(sf::Vector2f(60,20));
+	AddHitboxVertex(sf::Vector2f(00,20));
+	CalculateEdges();
 	lpe::Log("Player Loaded!");
 }
 
@@ -127,8 +131,8 @@ void Player::tick() {
 		}
 	}
 
-	move(CorrectMovement(movement));
 
+	move(CorrectMovement(movement));
 	//Camera movement
 	sf::Vector2f cent = getPosition();
 
