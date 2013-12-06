@@ -1,5 +1,6 @@
 #include "Player.hpp"
 #include "Game.hpp"
+#include "Area.hpp"
 #include "InputManager.hpp"
 #include "Utilities.hpp"
 
@@ -14,6 +15,8 @@ Player::~Player()
 }
 
 void Player::Load() {
+	lpe::Log("Player Loading...");
+	static_cast<Area*>(Game::Get()->GetActiveScene())->SetPlayer(this);
 	lpe::Log("Player Loading...");
 	Game::Get()->GetResourceManager()->LoadTexture("Mortem Debug", "mortem-d.png");
 	lpe::Log("Texture Loaded");
@@ -43,12 +46,16 @@ void Player::Load() {
 	AddHitboxVertex(sf::Vector2f(60,20));
 	AddHitboxVertex(sf::Vector2f(00,20));
 	CalculateEdges();
+	lpe::Log("Hitbox Done");
+
+	setOrigin(sf::Vector2f(30,-10));
+	lpe::Log("Middle set");
 	lpe::Log("Player Loaded!");
 }
 
 void Player::tick() {
 	Entity::tick();
-	int speed = 600;
+	int speed = 200;
 	sf::Vector2f movement;
 	if (Game::Get()->GetInputManager()->IsKeyPressed(Key::D)) {
 		movement.x+=speed;
@@ -131,10 +138,9 @@ void Player::tick() {
 		}
 	}
 
-
-	move(CorrectMovement(movement));
+	SetVelocity(movement);
+	/*move(CorrectMovement(movement));
 	//Camera movement
-	sf::Vector2f cent = getPosition();
 
 	if (getPosition().x - Game::Get()->GetView()->getSize().x/2 < 0)
 		cent.x = Game::Get()->GetView()->getSize().x/2;
@@ -147,5 +153,5 @@ void Player::tick() {
 		cent.y = Game::Get()->GetActiveScene()->GetBackground()->GetSize().y - Game::Get()->GetView()->getSize().y/2;
 	Game::Get()->GetView()->setCenter(cent);
 	//lpe::Log(lpe::to_string(cent.x) + " " + lpe::to_string(cent.y));
-
+*/
 }

@@ -13,16 +13,18 @@ public:
 	virtual void Load() = 0;
 	Spritesheet* GetSpritesheet() {return &m_Spritesheet;}
 	sf::Vector2f GetVelocity() {return m_velocity;}
-	void SetVelocity();
+	void SetVelocity(sf::Vector2f& vel) {m_velocity = vel;}
+	void CorrectMovement();
 	void ApplyMovement();
 protected:
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
-	sf::Vector2f CorrectMovement(sf::Vector2f vec);
+	void CorrentFrameVelocity();
 	virtual void tick();
 private:
 	Spritesheet m_Spritesheet;
 	bool m_Loaded = false;
-	sf::Vector2f m_velocity;
+	sf::Vector2f m_velocity; //Pixels per second
+	sf::Vector2f m_frameMovement; //Pixels this frame
 };
 
 #endif // ENTITY_H

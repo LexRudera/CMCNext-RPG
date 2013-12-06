@@ -7,33 +7,33 @@
 #include "Scene.hpp"
 #include "ResourceManager.hpp"
 //#include "InputManager.hpp"
+
 namespace lpe {
 class InputManager;
 class Core {
 public:
+	// De/Con-structors
 	Core(Settings* conf);
 	virtual ~Core();
 
+	// Static Functions
 	static Core* Get() {return m_Instance;}
 
-	int Run(Scene* scn);
-	sf::RenderWindow* GetWindow() const {
-		return m_window;
-	}
-	Scene* GetActiveScene() const {
-		return m_activeScene;
-	}
-	void ChangeScene(Scene* scn, const Persistence& depth = Level);
-
-	const sf::Time* GetFrameTime() const {return &m_frameTime;}
+	// Accessors
+	sf::RenderWindow* GetWindow() const {return m_window;}
+	Scene* GetActiveScene() const {return m_activeScene;}
 	Settings* GetSettings() {return m_config;}
 	ResourceManager* GetResourceManager() {return m_ResManager;}
 	InputManager* GetInputManager() {return m_InputMan;}
+	const sf::Time* GetFrameTime() const {return &m_frameTime;}
 	sf::View* GetView() {return &m_view;}
+	short VerticalSync() {return m_VerticalSync;}
+	void VerticalSync(short a);
 
-	void Quit() {
-		GetWindow()->close();
-	}
+	// Functions
+	int Run(Scene* scn);
+	void ChangeScene(Scene* scn, const Persistence& depth = Level);
+	void Quit() {GetWindow()->close();}
 protected:
 private:
 	Core();
@@ -49,6 +49,7 @@ private:
 	Persistence m_LvlChngMsg = Level;
 	ResourceManager* m_ResManager;
 	InputManager* m_InputMan;
+	short m_VerticalSync = 1;
 
 	sf::Time m_frameTime;
 };

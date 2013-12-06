@@ -15,9 +15,14 @@ private:
 	Button* BackBtn;
 	Button* VsyncBtn;
 	Button* FpsBtn;
+	Button* DebugLinesBtn;
+	Button* DebugHitboxesBtn;
 
 	void BackBtn_OnClick();
+	void VsyncBtn_OnClick();
 	void FpsBtn_OnClick();
+	void DebugLinesBtn_OnClick();
+	void DebugHitboxesBtn_OnClick();
 };
 
 #endif // OPTIONSMENU_H

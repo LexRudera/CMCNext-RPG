@@ -34,7 +34,7 @@ int Core::Run(Scene* scn) {
 	//m_window = new sf::RenderWindow(sf::VideoMode(800,600),"Some Game",sf::Style::Fullscreen/*sf::Style::Titlebar*/);
 	m_window = new sf::RenderWindow(sf::VideoMode(800,600),"CMC Next", sf::Style::Titlebar);
 	//m_window->setFramerateLimit(58);
-	m_window->setVerticalSyncEnabled(true);
+	VerticalSync(1);
 	m_view = m_window->getDefaultView();
 
 	ChangeScene(scn);
@@ -72,8 +72,6 @@ int Core::Run(Scene* scn) {
 			// Feed the InputManager
 			m_InputMan->ProcessInput(event);
 		}
-		if (GetInputManager()->IsKeyDown(sf::Keyboard::Key::Escape))
-			m_window->close();
 		//Log("Inputed?");
 
 		// Logic
@@ -118,5 +116,27 @@ void Core::ChangeScene(Scene* scn, const Persistence& depth) {
 
 	m_LvlChngMsg = depth;
 	m_nextscene = scn;
+}
+
+void Core::VerticalSync(short a) {
+	switch(a) {
+	case 0: //Off
+		m_window->setFramerateLimit(0);
+		m_window->setVerticalSyncEnabled(false);
+		m_VerticalSync = a;
+		break;
+	case 1: //On
+		m_window->setFramerateLimit(0);
+		m_window->setVerticalSyncEnabled(true);
+		m_VerticalSync = a;
+		break;
+	case 2: //Frame Limter
+		m_window->setFramerateLimit(60);
+		m_window->setVerticalSyncEnabled(false);
+		m_VerticalSync = a;
+		break;
+	}
+	m_window->setVerticalSyncEnabled(a);
+	m_VerticalSync = a;
 }
 }

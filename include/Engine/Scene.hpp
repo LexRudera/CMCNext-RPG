@@ -27,6 +27,7 @@ public:
 protected:
 	virtual void Tick();
 	virtual void Render(sf::RenderTarget& target);
+	virtual void OnClose();
 
 	std::vector<Object*> m_Objects;
 private:

@@ -1,4 +1,6 @@
 #include "Area.hpp"
+#include "Game.hpp"
+#include "MainMenu.hpp"
 
 Area::Area()
 {
@@ -15,16 +17,35 @@ Entity* Area::AddEntity(Entity* ent) {
 	return ent;
 }
 
+void Area::SetPlayer(Entity* ent) {
+	m_Player = ent;
+}
+
 void Area::Tick() {
 	// Collision Calculations
 	for (std::vector<lpe::Object*>::iterator i = m_Objects.begin(); i != m_Objects.end(); i++) {
-	//static_cast<Entity*>(i)
+	static_cast<Entity*>(*i)->ApplyMovement();
+
 	}
 	// Apply Movement
+	if (m_Player) {
+		sf::Vector2f cent = m_Player->getPosition();
+
+		if (m_Player->getPosition().x - Game::Get()->GetView()->getSize().x/2 < 0)
+			cent.x = Game::Get()->GetView()->getSize().x/2;
+		else if (m_Player->getPosition().x + Game::Get()->GetView()->getSize().x/2 > Game::Get()->GetActiveScene()->GetBackground()->GetSize().x)
+			cent.x = Game::Get()->GetActiveScene()->GetBackground()->GetSize().x - Game::Get()->GetView()->getSize().x/2;
+
+		if (m_Player->getPosition().y - Game::Get()->GetView()->getSize().y/2 < 0)
+			cent.y = Game::Get()->GetView()->getSize().y/2;
+		else if (m_Player->getPosition().y + Game::Get()->GetView()->getSize().y/2 > Game::Get()->GetActiveScene()->GetBackground()->GetSize().y)
+			cent.y = Game::Get()->GetActiveScene()->GetBackground()->GetSize().y - Game::Get()->GetView()->getSize().y/2;
+		Game::Get()->GetView()->setCenter(cent);
+	}
 }
 
 void Area::Render(sf::RenderTarget& target) {
-	if (true) {
+	if (Game::Get()->GetSettings()->DebugHitboxes()) {
 		for (unsigned int i = 0; i < GetHitboxCounter(); i++) {
 			target.draw(GetHitbox(i));
 			const sf::VertexArray& hbox = GetHitbox(i);
@@ -35,4 +56,8 @@ void Area::Render(sf::RenderTarget& target) {
 			}
 		}
 	}
+}
+
+void Area::OnClose() {
+	Game::Get()->ChangeScene(new MainMenu());
 }
