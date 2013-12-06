@@ -9,7 +9,7 @@
 #include "Utilities.hpp"
 #include <iostream>
 
-int main() {
+int main(int argc, const char* argv[]) {
 	lpe::Log("");
 	lpe::Log("Running");
 	lpe::Log("Setting up game instance");
