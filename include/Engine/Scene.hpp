@@ -12,7 +12,7 @@ public:
 	Scene();
 	/** Default destructor */
 	virtual ~Scene();
-	virtual void Load() = 0;
+	void DoLoad();
 	void DoTick();
 	void DoRender(sf::RenderTarget& target);
 	Background* GetBackground() {
@@ -25,6 +25,7 @@ public:
 	float GetWidth();
 	float GetHeight();
 protected:
+	virtual void Load() = 0;
 	virtual void Tick();
 	virtual void Render(sf::RenderTarget& target);
 	virtual void OnClose();

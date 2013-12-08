@@ -3,9 +3,10 @@
 
 #include <vector>
 #include "SFML/Graphics.hpp"
-
+class Entity;
 class Collider
 {
+friend Entity;
 typedef std::vector<sf::Vector2f> VectorArray;
 public:
 	Collider();
@@ -30,6 +31,7 @@ private:
 	//std::vector<sf::Vector2f> m_Edges;
 	std::vector<sf::VertexArray> m_Points;
 	std::vector<VectorArray> m_Edges;
+	sf::Vector2f* m_ColliderVelocity = 0;
 };
 
 #endif // Collider_H

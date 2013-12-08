@@ -5,6 +5,7 @@
 
 Entity::Entity(const sf::Vector2f& pos)
 {
+	m_ColliderVelocity = &m_frameMovement;
 	setPosition(pos);
 	//ctor
 }

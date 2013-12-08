@@ -14,6 +14,11 @@ Collider::~Collider()
 }
 
 void Collider::Collision(Collider* col) {
+	if (!m_ColliderVelocity)
+		return;
+	if (m_ColliderVelocity->x == 0 && m_ColliderVelocity->y == 0)
+		return;
+	//lpe::Log("Collision Algorithm");
 	/*PolygonCollisionResult result = new PolygonCollisionResult();
 	result.Intersect = true;
 	result.WillIntersect = true;

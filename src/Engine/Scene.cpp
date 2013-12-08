@@ -15,6 +15,13 @@ Scene::~Scene() {
 	}
 }
 
+void Scene::DoLoad() {
+	// Universal loading statements
+	Core::Get()->GetView()->setCenter(Core::Get()->GetView()->getSize().x/2, Core::Get()->GetView()->getSize().y/2);
+	// Scene individual loading
+	Load();
+}
+
 void Scene::DoTick() {
 	if (Core::Get()->GetInputManager()->IsKeyDown(Key::Escape))
 		OnClose();
@@ -51,12 +58,33 @@ void Scene::DoRender(sf::RenderTarget& target) {
 		target.draw(*m_Objects[i], sf::RenderStates::Default);
 	}
 	if (Core::Get()->GetSettings()->DebugLines()) {
+		// Middle
 		sf::Vertex hort[] = {sf::Vertex(sf::Vector2f(Core::Get()->GetView()->getCenter().x-Core::Get()->GetWindow()->getSize().x/2, Core::Get()->GetView()->getCenter().y)),
 							 sf::Vertex(sf::Vector2f(Core::Get()->GetView()->getCenter().x+Core::Get()->GetWindow()->getSize().x/2, Core::Get()->GetView()->getCenter().y))};
 		sf::Vertex vert[] = {sf::Vertex(sf::Vector2f(Core::Get()->GetView()->getCenter().x, Core::Get()->GetView()->getCenter().y-Core::Get()->GetWindow()->getSize().y/2)),
 							 sf::Vertex(sf::Vector2f(Core::Get()->GetView()->getCenter().x, Core::Get()->GetView()->getCenter().y+Core::Get()->GetWindow()->getSize().y/2))};
 		target.draw(hort,2,sf::PrimitiveType::Lines);
 		target.draw(vert,2,sf::PrimitiveType::Lines);
+
+		// Vertical
+		for (int offset = 100; Core::Get()->GetWindow()->getSize().x/2-offset > 0 ; offset+=100) {
+		sf::Vertex xvertleft[]  = {sf::Vertex(sf::Vector2f(Core::Get()->GetView()->getCenter().x-offset, Core::Get()->GetView()->getCenter().y-Core::Get()->GetWindow()->getSize().y/2)),
+								   sf::Vertex(sf::Vector2f(Core::Get()->GetView()->getCenter().x-offset, Core::Get()->GetView()->getCenter().y+Core::Get()->GetWindow()->getSize().y/2))};
+		sf::Vertex xvertright[] = {sf::Vertex(sf::Vector2f(Core::Get()->GetView()->getCenter().x+offset, Core::Get()->GetView()->getCenter().y-Core::Get()->GetWindow()->getSize().y/2)),
+								   sf::Vertex(sf::Vector2f(Core::Get()->GetView()->getCenter().x+offset, Core::Get()->GetView()->getCenter().y+Core::Get()->GetWindow()->getSize().y/2))};
+		target.draw(xvertleft,2,sf::PrimitiveType::Lines);
+		target.draw(xvertright,2,sf::PrimitiveType::Lines);
+		}
+
+		// Horizontal
+		for (int offset = 100; Core::Get()->GetWindow()->getSize().x/2-offset > 0 ; offset+=100) {
+		sf::Vertex xhorttop[]  = {sf::Vertex(sf::Vector2f(Core::Get()->GetView()->getCenter().x-Core::Get()->GetWindow()->getSize().x/2, Core::Get()->GetView()->getCenter().y-offset)),
+								   sf::Vertex(sf::Vector2f(Core::Get()->GetView()->getCenter().x+Core::Get()->GetWindow()->getSize().x/2, Core::Get()->GetView()->getCenter().y-offset))};
+		sf::Vertex xhortbottom[] = {sf::Vertex(sf::Vector2f(Core::Get()->GetView()->getCenter().x-Core::Get()->GetWindow()->getSize().x/2, Core::Get()->GetView()->getCenter().y+offset)),
+								   sf::Vertex(sf::Vector2f(Core::Get()->GetView()->getCenter().x+Core::Get()->GetWindow()->getSize().x/2, Core::Get()->GetView()->getCenter().y+offset))};
+		target.draw(xhorttop,2,sf::PrimitiveType::Lines);
+		target.draw(xhortbottom,2,sf::PrimitiveType::Lines);
+		}
 	}
 }
 

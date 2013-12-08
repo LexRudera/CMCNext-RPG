@@ -23,9 +23,20 @@ void Area::SetPlayer(Entity* ent) {
 
 void Area::Tick() {
 	// Collision Calculations
-	for (std::vector<lpe::Object*>::iterator i = m_Objects.begin(); i != m_Objects.end(); i++) {
-	static_cast<Entity*>(*i)->ApplyMovement();
+	//for (std::vector<lpe::Object*>::iterator i = m_Objects.begin(); i != m_Objects.end(); i++) {
+	for (unsigned int i = 0; i < m_Objects.size(); i++) {
+		//static_cast<Entity*>(*i)
+		//Entity::Collision()
+		//static_cast<Entity*>(*i)->ApplyMovement();
 
+		// Collision detection with all collidable entities
+		for (unsigned int j = 0; j < m_Objects.size(); j++) {
+			if (i == j)
+				continue;
+			static_cast<Entity*>(m_Objects[i])->Collision(static_cast<Entity*>(m_Objects[j]));
+		}
+		// Apply the final calculated movement
+		static_cast<Entity*>(m_Objects[i])->ApplyMovement();
 	}
 	// Apply Movement
 	if (m_Player) {

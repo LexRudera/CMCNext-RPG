@@ -57,7 +57,7 @@ int Core::Run(Scene* scn) {
 			GetResourceManager()->Clear(m_LvlChngMsg);
 			m_LvlChngMsg = Level;
 			// Load and apply next scene
-			m_activeScene->Load();
+			m_activeScene->DoLoad();
 			Log("Scene Changed");
 		}
 
