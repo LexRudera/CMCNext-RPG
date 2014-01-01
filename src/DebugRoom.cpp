@@ -19,7 +19,7 @@ void DebugRoom::Load() {
 	bg->Add(Game::Get()->GetResourceManager()->GetTexture("Debug Background"));
 	ApplyBackground(bg);
 
-	AddHitboxVertex(0,		0,		0);
+	/*AddHitboxVertex(0,		0,		0);
 	AddHitboxVertex(60,		0,		0);
 	AddHitboxVertex(100,	2000,	0);
 	AddHitboxVertex(0,		2000,	0);
@@ -33,7 +33,7 @@ void DebugRoom::Load() {
 	AddHitboxVertex(1370,	0,		2);
 	AddHitboxVertex(1365,	558,	2);
 	AddHitboxVertex(1118,	563,	2);
-	CalculateEdges();
+	CalculateHitboxes();*/
 
     AddEntity(new Player(sf::Vector2f(180, 180)))->Load();
     AddEntity(new TruffleMint(sf::Vector2f(300, 300)))->Load();

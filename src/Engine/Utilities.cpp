@@ -1,8 +1,6 @@
 #include "Utilities.hpp"
-#include "Game.hpp"
+#include "Core.hpp"
 #include <sstream>
-
-namespace lpe{
 void Error(const std::string& err) {
 	std::cerr << err << std::endl;
 }
@@ -10,7 +8,7 @@ void CriticalError(const std::string& err) {
 	std::cerr << err << std::endl;
 	int i;
 	std::cin >> i;
-	Core::Get()->Quit();
+	lpe::Core::Get()->Quit();
 }
 void Log(const std::string& txt) {
 	std::cout << txt << std::endl;
@@ -52,4 +50,3 @@ float DotProduct(const sf::Vector2f& a, const sf::Vector2f& b) {
 	return a.x*b.x + a.y*b.y;
 }
 
-}

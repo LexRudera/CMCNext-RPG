@@ -15,13 +15,13 @@ Player::~Player()
 }
 
 void Player::Load() {
-	lpe::Log("Player Loading...");
+	Log("Player Loading...");
 	static_cast<Area*>(Game::Get()->GetActiveScene())->SetPlayer(this);
-	lpe::Log("Player Loading...");
+	Log("Player Loading...");
 	Game::Get()->GetResourceManager()->LoadTexture("Mortem Debug", "mortem-d.png");
-	lpe::Log("Texture Loaded");
+	Log("Texture Loaded");
 	GetSpritesheet()->AddSheet(Game::Get()->GetResourceManager()->GetTexture("Mortem Debug"),7,5);
-	lpe::Log("Texture Sheet Added");
+	Log("Texture Sheet Added");
 	unsigned int idleleft[][3] = 	{{0,0,0}};
 	unsigned int idleright[][3] = 	{{0,1,0}};
 	unsigned int trotleft[][3] = 	{{0,2,0}, {0,3,0}, {0,4,0}, {0,5,0},
@@ -36,21 +36,21 @@ void Player::Load() {
 	GetSpritesheet()->AddSequence("Idle Right",idleright,1,0);
 	GetSpritesheet()->AddSequence("Trot Left",trotleft,16,24);
 	GetSpritesheet()->AddSequence("Trot Right",trotright,16,24);
-	lpe::Log("Sequence Added");
+	Log("Sequence Added");
 
 	GetSpritesheet()->Align(-20,-(GetSpritesheet()->GetSheet(0)->TileHeight)+18);
-	lpe::Log("Sprites Aligned");
+	Log("Sprites Aligned");
 
 	AddHitboxVertex(sf::Vector2f(0,0));
 	AddHitboxVertex(sf::Vector2f(60,0));
 	AddHitboxVertex(sf::Vector2f(60,20));
 	AddHitboxVertex(sf::Vector2f(00,20));
-	CalculateEdges();
-	lpe::Log("Hitbox Done");
+	CalculateHitboxes();
+	Log("Hitbox Done");
 
 	setOrigin(sf::Vector2f(30,-10));
-	lpe::Log("Middle set");
-	lpe::Log("Player Loaded!");
+	Log("Middle set");
+	Log("Player Loaded!");
 }
 
 void Player::tick() {
@@ -152,6 +152,6 @@ void Player::tick() {
 	else if (getPosition().y + Game::Get()->GetView()->getSize().y/2 > Game::Get()->GetActiveScene()->GetBackground()->GetSize().y)
 		cent.y = Game::Get()->GetActiveScene()->GetBackground()->GetSize().y - Game::Get()->GetView()->getSize().y/2;
 	Game::Get()->GetView()->setCenter(cent);
-	//lpe::Log(lpe::to_string(cent.x) + " " + lpe::to_string(cent.y));
+	//Log(to_string(cent.x) + " " + to_string(cent.y));
 */
 }

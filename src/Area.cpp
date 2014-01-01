@@ -1,6 +1,7 @@
 #include "Area.hpp"
 #include "Game.hpp"
 #include "MainMenu.hpp"
+#include "Utilities.hpp"
 
 Area::Area()
 {
@@ -23,21 +24,23 @@ void Area::SetPlayer(Entity* ent) {
 
 void Area::Tick() {
 	// Collision Calculations
-	//for (std::vector<lpe::Object*>::iterator i = m_Objects.begin(); i != m_Objects.end(); i++) {
 	for (unsigned int i = 0; i < m_Objects.size(); i++) {
-		//static_cast<Entity*>(*i)
-		//Entity::Collision()
-		//static_cast<Entity*>(*i)->ApplyMovement();
+		if (static_cast<Entity*>(m_Objects[i])->GetVelocity().x != 0 || static_cast<Entity*>(m_Objects[i])->GetVelocity().y != 0) { // If there's movement run collision detection.
+			static_cast<Entity*>(m_Objects[i])->CalcFrameVelocity(); // Calculate movement for this frame
+			//Log("Entity #" + to_string(i) +" " + to_string(static_cast<Entity*>(m_Objects[i])->GetColliderVelocity()->x) + ";" + to_string(static_cast<Entity*>(m_Objects[i])->GetColliderVelocity()->y));
+			for (unsigned int j = 0; j < m_Objects.size(); j++) { // Entities
+				if (i == j || !static_cast<Entity*>(m_Objects[j])->GetHitboxCounter()) // Same shit, different variable
+					continue;
 
-		// Collision detection with all collidable entities
-		for (unsigned int j = 0; j < m_Objects.size(); j++) {
-			if (i == j)
-				continue;
-			static_cast<Entity*>(m_Objects[i])->Collision(static_cast<Entity*>(m_Objects[j]));
+				static_cast<Entity*>(m_Objects[i])->Collision(static_cast<Entity*>(m_Objects[j]));
+			}
+			// Background
+			static_cast<Entity*>(m_Objects[i])->Collision(this);
 		}
 		// Apply the final calculated movement
 		static_cast<Entity*>(m_Objects[i])->ApplyMovement();
 	}
+
 	// Apply Movement
 	if (m_Player) {
 		sf::Vector2f cent = m_Player->getPosition();

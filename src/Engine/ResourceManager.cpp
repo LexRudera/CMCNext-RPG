@@ -26,6 +26,7 @@ void ResourceManager::Clear(Persistence depth) {
 	std::vector<FontEntry*>::iterator fit = m_Fonts.begin();
 	for(unsigned int i = 0; i<m_Fonts.size(); i++) {
 		if (m_Fonts[i]->getPersistance() <= depth) {
+			Log("Clearing Resource, Font: " + m_Fonts[i]->getName() + ", " + m_Fonts[i]->getFilename());
 			delete m_Fonts[i];
 			m_Fonts.erase(fit);
 		}
@@ -36,6 +37,7 @@ void ResourceManager::Clear(Persistence depth) {
 	std::vector<TextureEntry*>::iterator tit = m_Textures.begin();
 	for(unsigned int i = 0; i<m_Textures.size(); i++) {
 		if (m_Textures[i]->getPersistance() <= depth) {
+			Log("Clearing Resource, Texture: " + m_Textures[i]->getName() + ", " + m_Textures[i]->getFilename());
 			delete m_Textures[i];
 			m_Textures.erase(tit);
 		}
@@ -46,6 +48,7 @@ void ResourceManager::Clear(Persistence depth) {
 	std::vector<SoundEntry*>::iterator sit = m_Sounds.begin();
 	for(unsigned int i = 0; i<m_Sounds.size(); i++) {
 		if (m_Sounds[i]->getPersistance() <= depth) {
+			Log("Clearing Resource, Sound: " + m_Sounds[i]->getName() + ", " + m_Sounds[i]->getFilename());
 			delete m_Sounds[i];
 			m_Sounds.erase(sit);
 		}

@@ -70,9 +70,9 @@ bool Spritesheet::ActivateSequence(const char* seq) {
 void Spritesheet::tick() {
 	if (m_Sequences[m_ActiveSequenceIndex].frames.size() <= 1 || m_Sequences[m_ActiveSequenceIndex].intervalMilliseconds == 0) // There's animation!
 		return;
-	//lpe::Log( lpe::to_string(m_CurrentSequenceIndex+1) + "; " + lpe::to_string(m_clk.getElapsedTime().asMilliseconds()) + " >= " + lpe::to_string(m_Sequences[m_ActiveSequenceIndex].intervalMilliseconds) + " * " + lpe::to_string(m_Sequences[m_ActiveSequenceIndex].frames[m_CurrentSequenceIndex].durationMultiplier)    + " (" + lpe::to_string(m_Sequences[m_ActiveSequenceIndex].intervalMilliseconds * m_Sequences[m_ActiveSequenceIndex].frames[m_CurrentSequenceIndex].durationMultiplier) + ")");
+	//Log( to_string(m_CurrentSequenceIndex+1) + "; " + to_string(m_clk.getElapsedTime().asMilliseconds()) + " >= " + to_string(m_Sequences[m_ActiveSequenceIndex].intervalMilliseconds) + " * " + to_string(m_Sequences[m_ActiveSequenceIndex].frames[m_CurrentSequenceIndex].durationMultiplier)    + " (" + to_string(m_Sequences[m_ActiveSequenceIndex].intervalMilliseconds * m_Sequences[m_ActiveSequenceIndex].frames[m_CurrentSequenceIndex].durationMultiplier) + ")");
 	if (m_clk.getElapsedTime().asMilliseconds() >= m_Sequences[m_ActiveSequenceIndex].intervalMilliseconds * m_Sequences[m_ActiveSequenceIndex].frames[m_CurrentSequenceIndex-1].durationMultiplier) { // Let's change frame!
-		//lpe::Log(lpe::to_string(m_CurrentSequenceIndex) + ", " + lpe::to_string(m_Sequences[m_ActiveSequenceIndex].frames[m_CurrentSequenceIndex].durationMultiplier));
+		//Log(to_string(m_CurrentSequenceIndex) + ", " + to_string(m_Sequences[m_ActiveSequenceIndex].frames[m_CurrentSequenceIndex].durationMultiplier));
 		if (m_CurrentSequenceIndex < m_Sequences[m_ActiveSequenceIndex].frames.size()) { // Within range
 			ActivateFrame(m_Sequences[m_ActiveSequenceIndex].frames[m_CurrentSequenceIndex]);
 		}
@@ -92,15 +92,15 @@ void Spritesheet::draw(sf::RenderTarget& target, sf::RenderStates states) const 
 
 bool Spritesheet::ActivateFrame(Frame& frm, bool clocking) {
 	// Set the sheet
-	//lpe::Log(lpe::to_string(m_CurrentSequenceIndex+1) + ", " + lpe::to_string(frm.durationMultiplier));
+	//Log(to_string(m_CurrentSequenceIndex+1) + ", " + to_string(frm.durationMultiplier));
 	m_sprite.setTexture(*m_Sheets[frm.sheet].image);
 	//m_sprite.setPosition(-(m_Sheets[frm.sheet].TileWidth/2), -(m_Sheets[frm.sheet].TileHeight/2));
 	m_sprite.setPosition(m_Sheets[frm.sheet].OffsetPos);
 	// Set the renderet rectangle
-	//lpe::Log(lpe::to_string(frm.tileX*m_Sheets[frm.sheet].TileWidth));
-	//lpe::Log(lpe::to_string(frm.tileY*m_Sheets[frm.sheet].TileHeight));
-	//lpe::Log(lpe::to_string(m_Sheets[frm.sheet].TileWidth));
-	//lpe::Log(lpe::to_string(m_Sheets[frm.sheet].TileHeight));
+	//Log(to_string(frm.tileX*m_Sheets[frm.sheet].TileWidth));
+	//Log(to_string(frm.tileY*m_Sheets[frm.sheet].TileHeight));
+	//Log(to_string(m_Sheets[frm.sheet].TileWidth));
+	//Log(to_string(m_Sheets[frm.sheet].TileHeight));
 	sf::IntRect rect(frm.tileX*m_Sheets[frm.sheet].TileWidth, frm.tileY*m_Sheets[frm.sheet].TileHeight, m_Sheets[frm.sheet].TileWidth, m_Sheets[frm.sheet].TileHeight);
 	m_sprite.setTextureRect(rect);
 	if (clocking) m_clk.restart();

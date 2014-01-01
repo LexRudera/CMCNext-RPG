@@ -13,13 +13,13 @@ TruffleMint::~TruffleMint()
 }
 
 void TruffleMint::Load() {
-	lpe::Log("Truffle Loading...");
+	Log("Truffle Loading...");
 
 	Game::Get()->GetResourceManager()->LoadTexture("TruffleMint Idle Battle", "TruffleMint_idle_battle.png");
-	lpe::Log("Texture Loaded");
+	Log("Texture Loaded");
 
 	GetSpritesheet()->AddSheet(Game::Get()->GetResourceManager()->GetTexture("TruffleMint Idle Battle"),4,4);
-	lpe::Log("Texture Sheet Added");
+	Log("Texture Sheet Added");
 
 	std::vector<Spritesheet::Frame> idlebattle;
 	idlebattle.push_back(Spritesheet::Frame(0,0,0));// Section 1
@@ -64,9 +64,15 @@ void TruffleMint::Load() {
 	idlebattle.push_back(Spritesheet::Frame(0,3,1, 0.5));
 	idlebattle.push_back(Spritesheet::Frame(0,0,0));
 	GetSpritesheet()->AddSequence("Idle Left",idlebattle, 6);
-	lpe::Log("Sequence Added");
+	Log("Sequence Added");
 
-	lpe::Log("Truffle Loaded!");
+AddHitboxVertex(0,0);
+AddHitboxVertex(100,0);
+AddHitboxVertex(100,100);
+AddHitboxVertex(0,100);
+CalculateHitboxes();
+
+	Log("Truffle Loaded!");
 }
 
 void TruffleMint::tick() {

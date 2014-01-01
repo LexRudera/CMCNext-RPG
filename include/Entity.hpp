@@ -14,7 +14,7 @@ public:
 	Spritesheet* GetSpritesheet() {return &m_Spritesheet;}
 	sf::Vector2f GetVelocity() {return m_velocity;}
 	void SetVelocity(sf::Vector2f& vel) {m_velocity = vel;}
-	void CorrectMovement();
+	void CalcFrameVelocity();
 	void ApplyMovement();
 protected:
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;

@@ -10,15 +10,15 @@
 #include <iostream>
 
 int main(int argc, const char* argv[]) {
-	lpe::Log("");
-	lpe::Log("Running");
-	lpe::Log("Setting up game instance");
+	Log("");
+	Log("Running");
+	Log("Setting up game instance");
 	Game CmcNext;
-	lpe::Log("Firing up the game.");
+	Log("Firing up the game.");
 
 	int ErrorCode = CmcNext.Run(new MainMenu);
 	if (ErrorCode != 0) {
-		lpe::Error(lpe::IntToString(ErrorCode));
+		Error(IntToString(ErrorCode));
 	}
 		return ErrorCode;
 }

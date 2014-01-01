@@ -3,6 +3,7 @@
 
 #include <vector>
 #include "SFML/Graphics.hpp"
+
 class Entity;
 class Collider
 {
@@ -17,11 +18,13 @@ public:
 	void AddHitboxVertex(const sf::Vector2f& point, int i = 0);
 	void AddHitboxVertex(float x, float y, int i = 0);
 	void ClearHitbox(int i = 0);
-	void CalculateEdges();
+	void CalculateHitboxes();
 
 	const sf::VertexArray& GetHitbox(int i = 0) const {return m_Points[i];}
+	const sf::Vector2f& GetCenter(int i = 0) const {return m_Centers[i];}
 	unsigned int GetHitboxCounter() {return m_Points.size();}
 	const std::vector<sf::Vector2f>& GetHitboxEdges(int i = 0) const {return m_Edges[i];}
+	sf::Vector2f* GetColliderVelocity() {return m_ColliderVelocity;}
 
 protected:
 private:
@@ -31,7 +34,13 @@ private:
 	//std::vector<sf::Vector2f> m_Edges;
 	std::vector<sf::VertexArray> m_Points;
 	std::vector<VectorArray> m_Edges;
+	std::vector<sf::Vector2f> m_Centers;
 	sf::Vector2f* m_ColliderVelocity = 0;
+	Entity* m_ColliderEntityRoot = 0;
+
+	void ProjectPolygon(sf::Vector2f axis, const sf::VertexArray& polygon, float& min, float& max);
+	void ProjectPolygon(sf::Vector2f axis, Collider*, unsigned int HitboxIndex, float& min, float& max);
+	float IntervalDistance(float minA, float maxA, float minB, float maxB);
 };
 
 #endif // Collider_H

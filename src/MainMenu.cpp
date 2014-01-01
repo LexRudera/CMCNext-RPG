@@ -12,7 +12,7 @@ MainMenu::~MainMenu() {
 }
 
 void MainMenu::Load() {
-	lpe::Log("Loading MainMenu");
+	Log("Loading MainMenu");
 	// Load Resources
 	Game::Get()->GetResourceManager()->LoadTexture("CMC Next Logo", "cmclogo.png");
 	/*Game::Get()->GetResourceManager()->LoadTexture("Background 2", "bg2.png");
