@@ -25,6 +25,7 @@ public:
 	unsigned int GetHitboxCounter() {return m_Points.size();}
 	const std::vector<sf::Vector2f>& GetHitboxEdges(int i = 0) const {return m_Edges[i];}
 	sf::Vector2f* GetColliderVelocity() {return m_ColliderVelocity;}
+	Entity* GetEntityRoot() { return m_ColliderEntityRoot; }
 
 protected:
 private:

@@ -24,11 +24,11 @@ void Area::SetPlayer(Entity* ent) {
 
 void Area::Tick() {
 	// Collision Calculations
-	for (unsigned int i = 0; i < m_Objects.size(); i++) {
-		if (static_cast<Entity*>(m_Objects[i])->GetVelocity().x != 0 || static_cast<Entity*>(m_Objects[i])->GetVelocity().y != 0) { // If there's movement run collision detection.
+	for (unsigned int i = 0; i < m_Objects.size(); i++) { // Iterate through all the objects.
+		if (static_cast<Entity*>(m_Objects[i])->GetVelocity().x != 0 || static_cast<Entity*>(m_Objects[i])->GetVelocity().y != 0) { // If the object moves, run collision detection.
 			static_cast<Entity*>(m_Objects[i])->CalcFrameVelocity(); // Calculate movement for this frame
 			//Log("Entity #" + to_string(i) +" " + to_string(static_cast<Entity*>(m_Objects[i])->GetColliderVelocity()->x) + ";" + to_string(static_cast<Entity*>(m_Objects[i])->GetColliderVelocity()->y));
-			for (unsigned int j = 0; j < m_Objects.size(); j++) { // Entities
+			for (unsigned int j = 0; j < m_Objects.size(); j++) { // Iterate through all the objects to collide with.
 				if (i == j || !static_cast<Entity*>(m_Objects[j])->GetHitboxCounter()) // Same shit, different variable
 					continue;
 

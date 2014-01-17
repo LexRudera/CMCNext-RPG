@@ -2,6 +2,8 @@
 #include "Utilities.hpp"
 #include <limits>
 #include "Entity.hpp"
+#include "Debugroom.hpp"
+#include "Characters\TruffleMint.hpp"
 
 Collider::Collider() : m_Solid(true)
 {
@@ -16,6 +18,15 @@ Collider::~Collider()
 }
 
 void Collider::Collision(Collider* col) {
+	Log("");
+	if (dynamic_cast<DebugRoom*>(col)) {
+		Log("Debug Room!");
+	}
+	if (!col->m_ColliderEntityRoot)
+		Log("no col entity");
+	if (dynamic_cast<TruffleMint*>(col)) {
+		Log("Debug Room!");
+	}
 
 	bool Intersect = true;
 	bool WillIntersect = true;
@@ -23,7 +34,7 @@ void Collider::Collision(Collider* col) {
 	float minIntervalDistance = std::numeric_limits<float>::max();
 	sf::Vector2f translationAxis;
 	sf::Vector2f edge;
-
+ Log(to_string(col->GetHitboxCounter()));
 	for (unsigned int i = 0; i < this->GetHitboxCounter(); i++) { // This' edges, i
 		int thisEdgeCount = this->GetHitboxEdges(i).size();
 		for (unsigned int j = 0; j < col->GetHitboxCounter(); j++) { //Col' edges, j
@@ -50,6 +61,7 @@ void Collider::Collision(Collider* col) {
 				//ProjectPolygon(axis, col->GetHitbox(j), minB, maxB);
 				ProjectPolygon(axis, this, i, minA, maxA);
 				ProjectPolygon(axis, col, j, minB, maxB);
+				Log("minB "+ to_string(minB)+", maxB "+to_string(maxB));
 
 				// Check if the polygon projections are currentlty intersecting
 				//if (IntervalDistance(minA, maxA, minB, maxB) > 0) result.Intersect = false;
@@ -87,7 +99,18 @@ void Collider::Collision(Collider* col) {
 					minIntervalDistance = intervalDistance;
 					translationAxis = axis;
 
-					sf::Vector2f d = this->GetCenter(i) - col->GetCenter(j);
+					//sf::Vector2f d = this->GetCenter(i) - col->GetCenter(j);
+					sf::Vector2f d;
+					if (!this->m_ColliderEntityRoot) // Background
+						if (!col->m_ColliderEntityRoot) //Background
+							d = this->GetCenter(i) - col->GetCenter(j);
+						else //Entity
+							d = this->GetCenter(i) - (col->GetCenter(j)+ static_cast<Entity*>(col)->getPosition());
+					else // Entity
+						if (!col->m_ColliderEntityRoot) //Background
+							d = (this->GetCenter(i) + GetEntityRoot()->getPosition()) - col->GetCenter(j);
+						else //Entity
+							d = (this->GetCenter(i) + GetEntityRoot()->getPosition()) - (col->GetCenter(j)+ static_cast<Entity*>(col)->getPosition());
 					if (DotProduct(d, translationAxis) < 0) translationAxis = -translationAxis;
 				}
 			}
@@ -96,7 +119,8 @@ void Collider::Collision(Collider* col) {
 
 	//if (WillIntersect) MinimumTranslationVector = translationAxis * minIntervalDistance;
 	if (WillIntersect) *m_ColliderVelocity += translationAxis * minIntervalDistance;
-
+	Log("Will Intersect: " + to_string(WillIntersect));
+	Log("Intersect: " + to_string(Intersect));
 
 	//Log("Collision Algorithm");
 		//PolygonCollisionResult result = new PolygonCollisionResult();
@@ -199,16 +223,17 @@ void Collider::ProjectPolygon(sf::Vector2f axis, const sf::VertexArray& polygon,
 		}
 	}
 }
+
 void Collider::ProjectPolygon(sf::Vector2f axis, Collider* col, unsigned int HitboxIndex, float& min, float& max) {
 // To project a point on an axis use the dot product
 	float d;
 	if (!col->m_ColliderEntityRoot) d = min = max = DotProduct(axis, col->GetHitbox(HitboxIndex)[0].position);
-	else d = min = max = DotProduct(axis, col->GetHitbox(HitboxIndex)[0].position + col->m_ColliderEntityRoot->getPosition());
+	else 							d = min = max = DotProduct(axis, col->GetHitbox(HitboxIndex)[0].position + col->m_ColliderEntityRoot->getPosition() - col->m_ColliderEntityRoot->getOrigin());
 	//min = d;
 	//max = d;
-	for (int i = 0; i < col->GetHitbox(HitboxIndex).getVertexCount(); i++) {
+	for (int i = 1; i < col->GetHitbox(HitboxIndex).getVertexCount(); i++) {
 		if (!col->m_ColliderEntityRoot) d = DotProduct(col->GetHitbox(HitboxIndex)[i].position, axis);
-		else d = DotProduct(col->GetHitbox(HitboxIndex)[i].position + col->m_ColliderEntityRoot->getPosition(), axis);
+		else 							d = DotProduct(col->GetHitbox(HitboxIndex)[i].position + col->m_ColliderEntityRoot->getPosition() - col->m_ColliderEntityRoot->getOrigin(), axis);
 		if (d < min) {
 			min = d;
 		} else {
@@ -267,8 +292,8 @@ void Collider::CalculateHitboxes() {
 			}
 			m_Edges[i].push_back((p2->position) - (p1->position));
 			// Center
-			totalX += m_Points[i][j].position.x;
-			totalY += m_Points[i][j].position.y;
+				totalX += m_Points[i][j].position.x;
+				totalY += m_Points[i][j].position.y;
 		}
 
 		m_Centers.push_back(sf::Vector2f(totalX / (float)m_Points[i].getVertexCount(), totalY / (float)m_Points[i].getVertexCount()));
