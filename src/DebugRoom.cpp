@@ -33,7 +33,7 @@ void DebugRoom::Load() {
 	AddHitboxVertex(1120,	0,		1);
 	AddHitboxVertex(1120,	58,		1);
 	AddHitboxVertex(60,		65,		1);
-/*
+
 	AddHitboxVertex(1116,	0,		2);
 	AddHitboxVertex(1370,	0,		2);
 	AddHitboxVertex(1365,	558,	2);

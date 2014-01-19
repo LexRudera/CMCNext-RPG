@@ -24,20 +24,30 @@ void Collider::Collision(Collider* col) {
 	}
 	if (!col->m_ColliderEntityRoot)
 		Log("no col entity");
+	else
 	if (dynamic_cast<TruffleMint*>(col)) {
-		Log("Debug Room!");
+		Log("Truffle!");
 	}
 
 	bool Intersect = true;
 	bool WillIntersect = true;
-	//float minIntervalDistance = float.PositiveInfinity;
-	float minIntervalDistance = std::numeric_limits<float>::max();
-	sf::Vector2f translationAxis;
-	sf::Vector2f edge;
+	//float minIntervalDistance = std::numeric_limits<float>::max();
+	//sf::Vector2f translationAxis;
+	//sf::Vector2f edge;
  Log(to_string(col->GetHitboxCounter()));
-	for (unsigned int i = 0; i < this->GetHitboxCounter(); i++) { // This' edges, i
+	for (unsigned int i = 0; i < this->GetHitboxCounter(); i++) { // This' hitboxes, i
+		Log("Player hitbox" + to_string(i+1));
 		int thisEdgeCount = this->GetHitboxEdges(i).size();
-		for (unsigned int j = 0; j < col->GetHitboxCounter(); j++) { //Col' edges, j
+		for (unsigned int j = 0; j < col->GetHitboxCounter(); j++) { //Col' hitboxes, j
+			Log("Collider hitbox" + to_string(j+1));
+
+
+			Intersect = true;
+			WillIntersect = true;
+
+			float minIntervalDistance = std::numeric_limits<float>::max();
+			sf::Vector2f translationAxis;
+			sf::Vector2f edge;
 
 			int colEdgeCount = col->GetHitboxEdges(j).size();
 			// Loop through all the edges of both polygons
@@ -114,13 +124,16 @@ void Collider::Collision(Collider* col) {
 					if (DotProduct(d, translationAxis) < 0) translationAxis = -translationAxis;
 				}
 			}
+			if (WillIntersect) *m_ColliderVelocity += translationAxis * minIntervalDistance;
+			Log("Will Intersect: " + to_string(WillIntersect));
+			Log("Intersect: " + to_string(Intersect));
 		}
 	}
 
 	//if (WillIntersect) MinimumTranslationVector = translationAxis * minIntervalDistance;
-	if (WillIntersect) *m_ColliderVelocity += translationAxis * minIntervalDistance;
-	Log("Will Intersect: " + to_string(WillIntersect));
-	Log("Intersect: " + to_string(Intersect));
+//if (WillIntersect) *m_ColliderVelocity += translationAxis * minIntervalDistance;
+//Log("Will Intersect: " + to_string(WillIntersect));
+//Log("Intersect: " + to_string(Intersect));
 
 	//Log("Collision Algorithm");
 		//PolygonCollisionResult result = new PolygonCollisionResult();
