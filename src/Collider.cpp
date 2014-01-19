@@ -18,39 +18,19 @@ Collider::~Collider()
 }
 
 void Collider::Collision(Collider* col) {
-	Log("");
-	if (dynamic_cast<DebugRoom*>(col)) {
-		Log("Debug Room!");
-	}
-	if (!col->m_ColliderEntityRoot)
-		Log("no col entity");
-	else
-	if (dynamic_cast<TruffleMint*>(col)) {
-		Log("Truffle!");
-	}
-
-	bool Intersect = true;
-	bool WillIntersect = true;
-	//float minIntervalDistance = std::numeric_limits<float>::max();
-	//sf::Vector2f translationAxis;
-	//sf::Vector2f edge;
- Log(to_string(col->GetHitboxCounter()));
-	for (unsigned int i = 0; i < this->GetHitboxCounter(); i++) { // This' hitboxes, i
-		Log("Player hitbox" + to_string(i+1));
+	for (unsigned int i = 0; i < this->GetHitboxCounter(); i++) // This' hitboxes, i
+	{
 		int thisEdgeCount = this->GetHitboxEdges(i).size();
-		for (unsigned int j = 0; j < col->GetHitboxCounter(); j++) { //Col' hitboxes, j
-			Log("Collider hitbox" + to_string(j+1));
-
-
-			Intersect = true;
-			WillIntersect = true;
-
+		for (unsigned int j = 0; j < col->GetHitboxCounter(); j++) //Col' hitboxes, j
+		{
+			bool Intersect = true;
+			bool WillIntersect = true;
 			float minIntervalDistance = std::numeric_limits<float>::max();
 			sf::Vector2f translationAxis;
 			sf::Vector2f edge;
 
-			int colEdgeCount = col->GetHitboxEdges(j).size();
 			// Loop through all the edges of both polygons
+			int colEdgeCount = col->GetHitboxEdges(j).size();
 			for (int edgeIndex = 0; edgeIndex < thisEdgeCount + colEdgeCount; edgeIndex++) {
 				if (edgeIndex < thisEdgeCount) {
 					edge = this->GetHitboxEdges(i)[edgeIndex];
@@ -67,16 +47,11 @@ void Collider::Collision(Collider* col) {
 
 				// Find the projection of the polygon on the current axis
 				float minA, minB, maxA, maxB;
-				//ProjectPolygon(axis, this->GetHitbox(i), minA, maxA);
-				//ProjectPolygon(axis, col->GetHitbox(j), minB, maxB);
 				ProjectPolygon(axis, this, i, minA, maxA);
 				ProjectPolygon(axis, col, j, minB, maxB);
-				Log("minB "+ to_string(minB)+", maxB "+to_string(maxB));
 
 				// Check if the polygon projections are currentlty intersecting
-				//if (IntervalDistance(minA, maxA, minB, maxB) > 0) result.Intersect = false;
 				if (IntervalDistance(minA, maxA, minB, maxB) > 0) {
-					//result.Intersect = false;
 					Intersect = false;
 				}
 
@@ -94,29 +69,28 @@ void Collider::Collision(Collider* col) {
 
 				// Do the same test as above for the new projection
 				float intervalDistance = IntervalDistance(minA, maxA, minB, maxB);
-				//if (intervalDistance > 0) result.WillIntersect = false;
 				if (intervalDistance > 0) WillIntersect = false;
 
 				// If the polygons are not intersecting and won't intersect, exit the loop
-				//if (!result.Intersect && !result.WillIntersect) break;
 				if (!Intersect && !WillIntersect) break;
 
 				// Check if the current interval distance is the minimum one. If so store
 				// the interval distance and the current distance.
 				// This will be used to calculate the minimum translation sf::Vector2f
 				intervalDistance = std::abs(intervalDistance);
-				if (intervalDistance < minIntervalDistance) {
+				if (intervalDistance < minIntervalDistance)
+				{
 					minIntervalDistance = intervalDistance;
 					translationAxis = axis;
 
 					//sf::Vector2f d = this->GetCenter(i) - col->GetCenter(j);
 					sf::Vector2f d;
-					if (!this->m_ColliderEntityRoot) // Background
+					if (!this->m_ColliderEntityRoot) 	// Background
 						if (!col->m_ColliderEntityRoot) //Background
 							d = this->GetCenter(i) - col->GetCenter(j);
-						else //Entity
+						else 							//Entity
 							d = this->GetCenter(i) - (col->GetCenter(j)+ static_cast<Entity*>(col)->getPosition());
-					else // Entity
+					else 								// Entity
 						if (!col->m_ColliderEntityRoot) //Background
 							d = (this->GetCenter(i) + GetEntityRoot()->getPosition()) - col->GetCenter(j);
 						else //Entity
@@ -125,114 +99,6 @@ void Collider::Collision(Collider* col) {
 				}
 			}
 			if (WillIntersect) *m_ColliderVelocity += translationAxis * minIntervalDistance;
-			Log("Will Intersect: " + to_string(WillIntersect));
-			Log("Intersect: " + to_string(Intersect));
-		}
-	}
-
-	//if (WillIntersect) MinimumTranslationVector = translationAxis * minIntervalDistance;
-//if (WillIntersect) *m_ColliderVelocity += translationAxis * minIntervalDistance;
-//Log("Will Intersect: " + to_string(WillIntersect));
-//Log("Intersect: " + to_string(Intersect));
-
-	//Log("Collision Algorithm");
-		//PolygonCollisionResult result = new PolygonCollisionResult();
-		//result.Intersect = true;
-		//result.WillIntersect = true;
-
-/*
-		//int edgeCountA = polygonA.Edges.Count;
-		//int edgeCountB = polygonB.Edges.Count;
-	int edgeCountA = this->GetHitboxEdges();
-	int edgeCountB = polygonB.Edges.Count;
-	float minIntervalDistance = 0;
-	sf::Vector2f translationAxis;
-	sf::Vector2f edge;
-
-	// Loop through all the edges of both polygons
-	for (int edgeIndex = 0; edgeIndex < edgeCountA + edgeCountB; edgeIndex++) {
-		if (edgeIndex < edgeCountA) {
-			edge = polygonA.Edges[edgeIndex];
-		} else {
-			edge = polygonB.Edges[edgeIndex - edgeCountA];
-		}
-
-		// ===== 1. Find if the polygons are currently intersecting =====
-
-		// Find the axis perpendicular to the current edge
-		sf::Vector2f axis = new sf::Vector2f(-edge.Y, edge.X);
-		axis.Normalize();
-
-		// Find the projection of the polygon on the current axis
-		float minA = 0; float minB = 0; float maxA = 0; float maxB = 0;
-		ProjectPolygon(axis, polygonA, ref minA, ref maxA);
-		ProjectPolygon(axis, polygonB, ref minB, ref maxB);
-
-		// Check if the polygon projections are currentlty intersecting
-		//if (IntervalDistance(minA, maxA, minB, maxB) > 0) result.Intersect = false;
-		if (IntervalDistance(minA, maxA, minB, maxB) > 0) {
-			//result.Intersect = false;
-		}
-
-		// ===== 2. Now find if the polygons *will* intersect =====
-
-		// Project the velocity on the current axis
-		float velocityProjection = DotProduct(axis, velocity);
-
-		// Get the projection of polygon A during the movement
-		if (velocityProjection < 0) {
-			minA += velocityProjection;
-		} else {
-			maxA += velocityProjection;
-		}
-
-		// Do the same test as above for the new projection
-		float intervalDistance = IntervalDistance(minA, maxA, minB, maxB);
-		if (intervalDistance > 0) {
-			//result.WillIntersect = false;
-			WillIntersect = false;
-		}
-
-		// If the polygons are not intersecting and won't intersect, exit the loop
-		//if (!result.Intersect && !result.WillIntersect) break;
-		if (!Intersect && !WillIntersect) break;
-
-		// Check if the current interval distance is the minimum one. If so store
-		// the interval distance and the current distance.
-		// This will be used to calculate the minimum translation sf::Vector2f
-		intervalDistance = Math.Abs(intervalDistance);
-		if (intervalDistance < minIntervalDistance) {
-			minIntervalDistance = intervalDistance;
-			translationAxis = axis;
-
-			sf::Vector2f d = polygonA.Center - polygonB.Center;
-			if (DotProduct(d, translationAxis) < 0) translationAxis = -translationAxis;
-		}
-	}
-
-	// The minimum translation sf::Vector2f can be used to push the polygons appart.
-	// First moves the polygons by their velocity
-	// then move polygonA by MinimumTranslationsf::Vector2f.
-	//if (result.WillIntersect) result.MinimumTranslationVector = translationAxis * minIntervalDistance;
-	if (WillIntersect) MinimumTranslationVector = translationAxis * minIntervalDistance;
-
-	//return result;*/
-}
-
-void Collider::ProjectPolygon(sf::Vector2f axis, const sf::VertexArray& polygon, float& min, float& max) {
-// To project a point on an axis use the dot product
-	float d;
-	d = min = max = DotProduct(axis, polygon[0].position + m_ColliderEntityRoot->getPosition());
-	//min = d;
-	//max = d;
-	for (int i = 0; i < polygon.getVertexCount(); i++) {
-		d = DotProduct(polygon[i].position + m_ColliderEntityRoot->getPosition(), axis);
-		if (d < min) {
-			min = d;
-		} else {
-			if (d > max) {
-				max = d;
-			}
 		}
 	}
 }
@@ -242,21 +108,16 @@ void Collider::ProjectPolygon(sf::Vector2f axis, Collider* col, unsigned int Hit
 	float d;
 	if (!col->m_ColliderEntityRoot) d = min = max = DotProduct(axis, col->GetHitbox(HitboxIndex)[0].position);
 	else 							d = min = max = DotProduct(axis, col->GetHitbox(HitboxIndex)[0].position + col->m_ColliderEntityRoot->getPosition() - col->m_ColliderEntityRoot->getOrigin());
-	//min = d;
-	//max = d;
+
 	for (int i = 1; i < col->GetHitbox(HitboxIndex).getVertexCount(); i++) {
 		if (!col->m_ColliderEntityRoot) d = DotProduct(col->GetHitbox(HitboxIndex)[i].position, axis);
 		else 							d = DotProduct(col->GetHitbox(HitboxIndex)[i].position + col->m_ColliderEntityRoot->getPosition() - col->m_ColliderEntityRoot->getOrigin(), axis);
-		if (d < min) {
+		if (d < min)
 			min = d;
-		} else {
-			if (d > max) {
-				max = d;
-			}
-		}
+		 else if (d > max)
+			max = d;
 	}
 }
-
 
 float Collider::IntervalDistance(float minA, float maxA, float minB, float maxB) {
 	if (minA < minB) {
@@ -264,10 +125,6 @@ float Collider::IntervalDistance(float minA, float maxA, float minB, float maxB)
 	} else {
 		return minA - maxB;
 	}
-}
-
-void Collider::ClearCollisionTable() {
-	//m_Intersecting.clear();
 }
 
 void Collider::AddHitboxVertex(const sf::Vector2f& point, int i) {
@@ -281,10 +138,6 @@ void Collider::AddHitboxVertex(const sf::Vector2f& point, int i) {
 
 void Collider::AddHitboxVertex(float x, float y, int i) {
 	AddHitboxVertex(sf::Vector2f(x,y), i);
-}
-
-void Collider::ClearHitbox(int i) {
-	m_Points[i].clear();
 }
 
 void Collider::CalculateHitboxes() {
@@ -305,12 +158,10 @@ void Collider::CalculateHitboxes() {
 			}
 			m_Edges[i].push_back((p2->position) - (p1->position));
 			// Center
-				totalX += m_Points[i][j].position.x;
-				totalY += m_Points[i][j].position.y;
+			totalX += m_Points[i][j].position.x;
+			totalY += m_Points[i][j].position.y;
 		}
-
 		m_Centers.push_back(sf::Vector2f(totalX / (float)m_Points[i].getVertexCount(), totalY / (float)m_Points[i].getVertexCount()));
 	}
-	// Center
-
 }
+
