@@ -37,10 +37,14 @@ void Scene::DoTick() {
 float Scene::GetWidth() {
 	if (!m_Background)
 		return Core::Get()->GetWindow()->getSize().x;
+    else
+        return m_Background->GetSize().x;
 }
 float Scene::GetHeight() {
 	if (!m_Background)
 		return Core::Get()->GetWindow()->getSize().y;
+    else
+        return m_Background->GetSize().y;
 }
 
 void Scene::Tick() {

@@ -104,6 +104,7 @@ bool Spritesheet::ActivateFrame(Frame& frm, bool clocking) {
 	sf::IntRect rect(frm.tileX*m_Sheets[frm.sheet].TileWidth, frm.tileY*m_Sheets[frm.sheet].TileHeight, m_Sheets[frm.sheet].TileWidth, m_Sheets[frm.sheet].TileHeight);
 	m_sprite.setTextureRect(rect);
 	if (clocking) m_clk.restart();
+	return true;
 }
 
 void Spritesheet::ReloadFrame() {

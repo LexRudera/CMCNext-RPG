@@ -1,7 +1,7 @@
 #ifndef BATTLE_H
 #define BATTLE_H
 
-#include "Scene.hpp"
+#include <Engine\Scene.hpp>
 
 
 class Battle : public lpe::Scene

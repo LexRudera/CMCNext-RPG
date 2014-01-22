@@ -109,7 +109,7 @@ void Collider::ProjectPolygon(sf::Vector2f axis, Collider* col, unsigned int Hit
 	if (!col->m_ColliderEntityRoot) d = min = max = DotProduct(axis, col->GetHitbox(HitboxIndex)[0].position);
 	else 							d = min = max = DotProduct(axis, col->GetHitbox(HitboxIndex)[0].position + col->m_ColliderEntityRoot->getPosition() - col->m_ColliderEntityRoot->getOrigin());
 
-	for (int i = 1; i < col->GetHitbox(HitboxIndex).getVertexCount(); i++) {
+	for (unsigned int i = 1; i < col->GetHitbox(HitboxIndex).getVertexCount(); i++) {
 		if (!col->m_ColliderEntityRoot) d = DotProduct(col->GetHitbox(HitboxIndex)[i].position, axis);
 		else 							d = DotProduct(col->GetHitbox(HitboxIndex)[i].position + col->m_ColliderEntityRoot->getPosition() - col->m_ColliderEntityRoot->getOrigin(), axis);
 		if (d < min)
@@ -127,7 +127,7 @@ float Collider::IntervalDistance(float minA, float maxA, float minB, float maxB)
 	}
 }
 
-void Collider::AddHitboxVertex(const sf::Vector2f& point, int i) {
+void Collider::AddHitboxVertex(const sf::Vector2f& point,unsigned int i) {
 	if (i >= m_Points.size())
 		for (unsigned int j = 0; j < i-m_Points.size()+1; j++) {
 			m_Points.push_back(sf::VertexArray(sf::PrimitiveType::LinesStrip));

@@ -66,11 +66,14 @@ void TruffleMint::Load() {
 	GetSpritesheet()->AddSequence("Idle Left",idlebattle, 6);
 	Log("Sequence Added");
 
-AddHitboxVertex(0,0);
-AddHitboxVertex(100,0);
-AddHitboxVertex(100,100);
-AddHitboxVertex(0,100);
-CalculateHitboxes();
+	GetSpritesheet()->Align(0,-(GetSpritesheet()->GetSheet(0)->TileHeight)+18);
+	Log("Sprites Aligned");
+
+    AddHitboxVertex(0,0);
+    AddHitboxVertex(100,0);
+    AddHitboxVertex(100,20);
+    AddHitboxVertex(0,20);
+    CalculateHitboxes();
 
 	Log("Truffle Loaded!");
 }

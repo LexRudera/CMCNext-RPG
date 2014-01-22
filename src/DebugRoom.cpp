@@ -23,12 +23,7 @@ void DebugRoom::Load() {
 	AddHitboxVertex(60,		0,		0);
 	AddHitboxVertex(100,	2000,	0);
 	AddHitboxVertex(0,		2000,	0);
-	/**//*
-	AddHitboxVertex(50,		50,		0);
-	AddHitboxVertex(110,	50,		0);
-	AddHitboxVertex(150,	2050,	0);
-	AddHitboxVertex(50,		2050,	0);
-	/**/
+
 	AddHitboxVertex(60,		0,		1);
 	AddHitboxVertex(1120,	0,		1);
 	AddHitboxVertex(1120,	58,		1);
@@ -38,7 +33,6 @@ void DebugRoom::Load() {
 	AddHitboxVertex(1370,	0,		2);
 	AddHitboxVertex(1365,	558,	2);
 	AddHitboxVertex(1118,	563,	2);
-	/**/
 	CalculateHitboxes();
 
     AddEntity(new Player(sf::Vector2f(180, 180)))->Load();

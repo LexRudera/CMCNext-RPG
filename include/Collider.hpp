@@ -14,7 +14,7 @@ public:
 	virtual ~Collider();
 
 	void Collision(Collider* col);
-	void AddHitboxVertex(const sf::Vector2f& point, int i = 0);
+	void AddHitboxVertex(const sf::Vector2f& point, unsigned int i = 0);
 	void AddHitboxVertex(float x, float y, int i = 0);
 	void CalculateHitboxes();
 
