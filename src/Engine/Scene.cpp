@@ -56,10 +56,14 @@ void Scene::DoRender(sf::RenderTarget& target) {
 		target.draw(*m_Background, sf::RenderStates::Default);
 
 	}
+	m_RenderList.clear();
+	RenderList(m_RenderList);
+
 	Render(target);
-	for (unsigned int i = 0; i < m_Objects.size(); i++) {
+	//for (unsigned int i = 0; i < m_Objects.size(); i++) {
+	for (unsigned int i = 0; i < m_RenderList.size(); i++) {
 		//Log("Render loop: " + *((Label)m_Objects[i]).GetString());
-		target.draw(*m_Objects[i], sf::RenderStates::Default);
+		target.draw(*m_RenderList[i], sf::RenderStates::Default);
 	}
 	if (Core::Get()->GetSettings()->DebugLines()) {
 		// Middle
@@ -94,6 +98,9 @@ void Scene::DoRender(sf::RenderTarget& target) {
 
 void Scene::Render(sf::RenderTarget& target) {
 
+}
+void Scene::RenderList(std::vector<Object*>& renderLst) {
+renderLst = m_Objects;
 }
 
 void Scene::OnClose() {

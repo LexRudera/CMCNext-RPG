@@ -28,9 +28,11 @@ protected:
 	virtual void Load() = 0;
 	virtual void Tick();
 	virtual void Render(sf::RenderTarget& target);
+	virtual void RenderList(std::vector<Object*>& RenderList);
 	virtual void OnClose();
 
 	std::vector<Object*> m_Objects;
+	std::vector<Object*> m_RenderList;
 private:
 	Background* m_Background = 0;
 };
