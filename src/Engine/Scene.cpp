@@ -56,10 +56,10 @@ void Scene::DoRender(sf::RenderTarget& target) {
 		target.draw(*m_Background, sf::RenderStates::Default);
 
 	}
+	Render(target); // Just the scene/background stuff
+
 	m_RenderList.clear();
 	RenderList(m_RenderList);
-
-	Render(target);
 	//for (unsigned int i = 0; i < m_Objects.size(); i++) {
 	for (unsigned int i = 0; i < m_RenderList.size(); i++) {
 		//Log("Render loop: " + *((Label)m_Objects[i]).GetString());

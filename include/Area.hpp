@@ -14,6 +14,7 @@ public:
 protected:
 	virtual void Tick();
 	virtual void Render(sf::RenderTarget& target);
+	virtual void RenderList(std::vector<lpe::Object*>& renderList);
 	virtual void OnClose();
 private:
 	Entity* m_Player = 0;

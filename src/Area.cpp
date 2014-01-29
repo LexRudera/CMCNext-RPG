@@ -58,6 +58,26 @@ void Area::Tick() {
 	}
 }
 
+void Area::RenderList(std::vector<lpe::Object*>& renderList) {
+    if(m_Objects.empty())
+        return;
+    else {
+        renderList.push_back(m_Objects[0]);
+        for (int i = 1; i < m_Objects.size(); i++) {
+            bool inserted = false;
+            for (int j = 0; j < renderList.size(); j++) {
+                if (static_cast<Entity*>(m_Objects[i])->getPosition().y < static_cast<Entity*>(renderList[j])->getPosition().y) {
+                    renderList.insert(renderList.begin()+j, m_Objects[i]);
+                    inserted = true;
+                    break;
+                }
+            }
+            if (!inserted)
+                renderList.push_back(m_Objects[i]);
+        }
+    }
+}
+
 void Area::Render(sf::RenderTarget& target) {
 	if (Game::Get()->GetSettings()->DebugHitboxes()) {
 		for (unsigned int i = 0; i < GetHitboxCounter(); i++) {
